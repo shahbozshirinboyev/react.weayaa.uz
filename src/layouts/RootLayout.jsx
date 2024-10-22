@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import Home from "../components/Home";
 
 function RootLayout() {
   const home = useRef(null);
@@ -6,69 +7,92 @@ function RootLayout() {
   const art = useRef(null);
   const news = useRef(null);
   const contact = useRef(null);
-
   const menus = [
     {
       id: 1,
-      refName: "home",
+      ref: home,
       name: "Home",
     },
     {
       id: 2,
-      refName: "members",
+      ref: members,
       name: "Members",
     },
     {
       id: 3,
-      refName: "art",
+      ref: art,
       name: "Art",
     },
     {
       id: 4,
-      refName: "news",
+      ref: news,
       name: "News",
     },
     {
       id: 5,
-      refName: "contact",
+      ref: contact,
       name: "Contact",
     },
   ];
+
+  const [scrollY, setScrollY] = useState(0);
+
   const scrollToSection = (sectionRef) => {
     if (sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <section className="bg-lime-200 sticky top-0">
-        <div className="container flex justify-center items-center py-4 sticky top-0">
-          <div>
+    {/* Navbar Section =============> */}
+      <section className="fixed bg-transparent w-full border border-green-700">
+        <ul
+          className={`container border border-red-600 flex items-center ${
+            scrollY > 50 ? "py-4" : "py-10"
+          }  mx-auto text-center transition-all duration-300`}
+        >
+          <li className="text-start w-full">
             <p className="font-bold">logo.</p>
-          </div>
+          </li>
 
-          <ul className="grid grid-cols-5 mx-auto text-center gap-24">
-            {menus.map((menu) => (
-              <li
-                key={menu.id}
-                onClick={() => {scrollToSection(news)}}
-                className="cursor-pointer"
-              >
-                {menu.name}
-              </li>
-            ))}
-          </ul>
+          {menus.map((menu) => (
+            <li
+              key={menu.id}
+              onClick={() => {
+                scrollToSection(menu.ref);
+                console.log(menu.ref);
+              }}
+              className="cursor-pointer w-[350px]"
+            >
+              {menu.name}
+            </li>
+          ))}
 
-          <div>
+          <li className="w-full text-end">
             <p className="font-bold">En</p>
-          </div>
-        </div>
+          </li>
+        </ul>
+      </section>
+
+      {/* Home Section =============> */}
+      <section>
+        <Home ref={home} />
       </section>
 
       {/* Sahifaning bo'limlari */}
       <div
-        ref={home}
+        // ref={home}
         style={{ height: "1200px", backgroundColor: "lightgray" }}
       >
         Bo'lim 1
