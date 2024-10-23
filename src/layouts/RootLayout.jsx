@@ -1,5 +1,11 @@
 import { useRef, useState, useEffect } from "react";
+
+// components
 import Home from "../components/Home";
+import Members from "../components/Members";
+import Art from "../components/Art";
+import News from "../components/News";
+import Contact from "../components/Contact";
 
 function RootLayout() {
   const home = useRef(null);
@@ -7,6 +13,7 @@ function RootLayout() {
   const art = useRef(null);
   const news = useRef(null);
   const contact = useRef(null);
+
   const menus = [
     {
       id: 1,
@@ -55,15 +62,15 @@ function RootLayout() {
 
   return (
     <>
-    {/* Navbar Section =============> */}
-      <section className="fixed bg-transparent w-full border border-green-700">
-        <ul
-          className={`container border border-red-600 flex items-center ${
-            scrollY > 50 ? "py-4" : "py-10"
-          }  mx-auto text-center transition-all duration-300`}
-        >
+      {/* Navbar Section =============> */}
+      <section
+        className={`fixed bg-transparent w-full ${
+          scrollY > 50 ? "py-4 bg-white" : "py-10"
+        } transition-all duration-300 border border-green-700`}
+      >
+        <ul className="container flex items-center mx-auto text-center border border-red-700">
           <li className="text-start w-full">
-            <p className="font-bold">logo.</p>
+            <p className="font-bold border border-sky-800">logo.</p>
           </li>
 
           {menus.map((menu) => (
@@ -71,15 +78,14 @@ function RootLayout() {
               key={menu.id}
               onClick={() => {
                 scrollToSection(menu.ref);
-                console.log(menu.ref);
               }}
-              className="cursor-pointer w-[350px]"
+              className="cursor-pointer w-[480px] border border-sky-500"
             >
               {menu.name}
             </li>
           ))}
 
-          <li className="w-full text-end">
+          <li className="w-full text-end border border-sky-800">
             <p className="font-bold">En</p>
           </li>
         </ul>
@@ -90,41 +96,25 @@ function RootLayout() {
         <Home ref={home} />
       </section>
 
-      {/* Sahifaning bo'limlari */}
-      <div
-        // ref={home}
-        style={{ height: "1200px", backgroundColor: "lightgray" }}
-      >
-        Bo'lim 1
-      </div>
+      {/* Members Section =============> */}
+      <section>
+        <Members ref={members} />
+      </section>
 
-      <div
-        ref={members}
-        style={{ height: "1200px", backgroundColor: "lightblue" }}
-      >
-        Bo'lim 2
-      </div>
+      {/* Art Section =============> */}
+      <section>
+        <Art ref={art} />
+      </section>
 
-      <div
-        ref={art}
-        style={{ height: "1200px", backgroundColor: "lightgreen" }}
-      >
-        Bo'lim 3
-      </div>
+      {/* News Section =============> */}
+      <section>
+        <News ref={news} />
+      </section>
 
-      <div
-        ref={news}
-        style={{ height: "1200px", backgroundColor: "lightgreen" }}
-      >
-        Bo'lim 4
-      </div>
-
-      <div
-        ref={contact}
-        style={{ height: "1200px", backgroundColor: "lightgreen" }}
-      >
-        Bo'lim 2
-      </div>
+      {/* Contact Section =============> */}
+      <section>
+        <Contact ref={contact} />
+      </section>
     </>
   );
 }
