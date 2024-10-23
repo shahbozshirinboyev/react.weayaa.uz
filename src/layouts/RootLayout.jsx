@@ -42,6 +42,7 @@ function RootLayout() {
       name: "Contact",
     },
   ];
+  const [openMenus, setOpenMenus] = useState(false);
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -65,12 +66,12 @@ function RootLayout() {
     <>
       {/* Navbar Section =============> */}
       <section
-        className={`fixed bg-transparent w-full ${
-          scrollY > 50 ? "py-4 bg-white" : "py-10"
+        className={`fixed w-full px-2 ${
+          scrollY > 50 ? "py-4 bg-white" : "py-8 bg-transparent"
         } transition-all duration-300 border border-green-700`}
       >
         <ul className="container flex items-center mx-auto text-center border border-red-700">
-          <li className="text-start w-full">
+          <li className="text-start w-full text-[30px]">
             <p className="font-bold border border-sky-800">logo.</p>
           </li>
 
@@ -80,17 +81,34 @@ function RootLayout() {
               onClick={() => {
                 scrollToSection(menu.ref);
               }}
-              className="cursor-pointer w-[480px] border border-sky-500"
+              className="cursor-pointer w-[480px] border border-sky-500 hidden md:block"
             >
               {menu.name}
             </li>
           ))}
 
-          <li className="w-full text-end border border-sky-800">
+          <li className="w-full text-end border border-sky-800 hidden lg:block">
             <p className="font-bold">En</p>
+          </li>
+
+          <li onClick={() => {setOpenMenus(!openMenus)}} className="text-end border w-[50px] text-[30px] flex justify-center items-center  text-black border-sky-800 md:hidden cursor-pointer">
+            <i className="bi bi-list font-bold"></i>
           </li>
         </ul>
       </section>
+
+    { openMenus &&  <div
+        className={`bg-red-300 fixed h-[400px] mx-2 ${
+          scrollY > 50 ? "mt-[90px]" : "mt-[120px]"
+        } transition-all duration-300`}
+      >
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+          corrupti officia consectetur? Veniam reiciendis odit reprehenderit,
+          ipsum fuga natus non, officiis temporibus, culpa amet eos maiores
+          asperiores accusamus quisquam iusto.
+        </p>
+      </div>}
 
       {/* Home Section =============> */}
       <section>
