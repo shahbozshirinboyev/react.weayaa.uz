@@ -6,6 +6,7 @@ import Members from "../components/Members";
 import Art from "../components/Art";
 import News from "../components/News";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 function RootLayout() {
   const home = useRef(null);
@@ -114,6 +115,11 @@ function RootLayout() {
       {/* Contact Section =============> */}
       <section>
         <Contact ref={contact} />
+      </section>
+
+      {/* Contact Section =============> */}
+      <section>
+        <Footer />
       </section>
     </>
   );
