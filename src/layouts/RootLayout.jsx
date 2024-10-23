@@ -70,7 +70,7 @@ function RootLayout() {
           scrollY > 50 ? "py-4 bg-white" : "py-8 bg-transparent"
         } transition-all duration-300 border border-green-700`}
       >
-        <ul className="container flex items-center mx-auto text-center border border-red-700">
+        <ul className="container flex items-center mx-auto gap-4 text-center border border-red-700">
           <li className="text-start w-full text-[30px]">
             <p className="font-bold border border-sky-800">logo.</p>
           </li>
@@ -91,24 +91,47 @@ function RootLayout() {
             <p className="font-bold">En</p>
           </li>
 
-          <li onClick={() => {setOpenMenus(!openMenus)}} className="text-end border w-[50px] text-[30px] flex justify-center items-center  text-black border-sky-800 md:hidden cursor-pointer">
+          <li
+            onClick={() => {
+              setOpenMenus(!openMenus);
+            }}
+            className="text-end border w-[50px] text-[30px] flex justify-center items-center  text-black border-sky-800 md:hidden cursor-pointer"
+          >
             <i className="bi bi-list font-bold"></i>
           </li>
         </ul>
       </section>
 
-    { openMenus &&  <div
-        className={`bg-red-300 fixed h-[400px] mx-2 ${
-          scrollY > 50 ? "mt-[90px]" : "mt-[120px]"
-        } transition-all duration-300`}
-      >
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-          corrupti officia consectetur? Veniam reiciendis odit reprehenderit,
-          ipsum fuga natus non, officiis temporibus, culpa amet eos maiores
-          asperiores accusamus quisquam iusto.
-        </p>
-      </div>}
+      {openMenus && (
+        <div
+          className={`bg-red-300 fixed w-[calc(100%-16px)] ml-2 mr-2 ${
+            scrollY > 50 ? "mt-[90px]" : "mt-[120px]"
+          } transition-all duration-300 p-4 md:hidden`}
+        >
+          <ul className="items-center text-center p-2 border border-red-700">
+
+            <li className="text-start text-[20px] w-[250px] mt-4">
+              <p className="font-bold border border-sky-800">Menu:</p>
+            </li>
+
+            {menus.map((menu) => (
+              <li
+                key={menu.id}
+                onClick={() => {
+                  scrollToSection(menu.ref);
+                }}
+                className="cursor-pointer border mt-4 w-[250px] border-sky-500"
+              >
+                {menu.name}
+              </li>
+            ))}
+
+            <li className="border border-sky-800 mt-4 mb-4 w-[250px]">
+              <p className="font-bold">En</p>
+            </li>
+          </ul>
+        </div>
+      )}
 
       {/* Home Section =============> */}
       <section>
