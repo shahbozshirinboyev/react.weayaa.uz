@@ -9,8 +9,8 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 // logo
-import logoBlack from '/img/logo/logo-black.png';
-import logoWhite from '/img/logo/logo-white.png';
+import logoBlack from "/img/logo/logo-black.png";
+import logoWhite from "/img/logo/logo-white.png";
 
 function RootLayout() {
   const home = useRef(null);
@@ -47,8 +47,7 @@ function RootLayout() {
     },
   ];
 
-  const [activeRef, setActiveRef] = useState(
-    home);
+  const [activeRef, setActiveRef] = useState(home);
 
   const [openMenus, setOpenMenus] = useState(false);
 
@@ -76,11 +75,15 @@ function RootLayout() {
       <section
         className={`fixed w-full px-2 ${
           scrollY > 50 ? "py-4 bg-white" : "py-8 bg-transparent"
-        } transition-all duration-300 border border-green-700`}
+        } transition-all duration-300`}
       >
-        <ul className="container flex items-center mx-auto gap-4 text-center border border-red-700">
+        <ul className="container flex items-center mx-auto gap-4 text-center">
           <li className="text-start w-full text-[30px] border border-red-700">
-            <img src={ scrollY > 50 ? logoBlack : logoWhite} alt="Logo" className="transition-all duration-300" />
+            <img
+              src={scrollY > 50 ? logoBlack : logoWhite}
+              alt="Logo"
+              className="transition-all duration-300"
+            />
           </li>
 
           {menus.map((menu) => (
@@ -88,15 +91,26 @@ function RootLayout() {
               key={menu.id}
               onClick={() => {
                 scrollToSection(menu.ref);
+                setActiveRef(menu.ref);
               }}
-              className={`cursor-pointer w-[480px] font-bold border border-sky-500 hidden md:block ${ activeRef === menu.ref ? "text-green-700" : "text-black"}`}
+              className={`cursor-pointer w-[480px] font-bold ${
+                scrollY > 50 ? "text-green" : "text-white"
+              } border  border-sky-500 hidden md:block ${
+                activeRef === menu.ref ? "text-green-700" : "text-black"
+              }`}
             >
               {menu.name}
             </li>
           ))}
 
           <li className="w-full text-end border border-sky-800 hidden lg:block">
-            <p className="font-bold">En</p>
+            <p
+              className={`font-bold ${
+                scrollY > 50 ? "text-black" : "text-white"
+              }`}
+            >
+              En
+            </p>
           </li>
 
           <li
@@ -117,7 +131,6 @@ function RootLayout() {
           } transition-all duration-300 p-4 md:hidden`}
         >
           <ul className="items-center text-center p-2 border border-red-700">
-
             <li className="text-start text-[20px] w-[250px] mt-4">
               <p className="font-bold border border-sky-800">Menu:</p>
             </li>
