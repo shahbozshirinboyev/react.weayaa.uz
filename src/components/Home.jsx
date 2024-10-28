@@ -12,6 +12,8 @@ const Home = forwardRef((props, ref) => {
           This is the Home section of the website. Scroll down to explore more!
         </p>
       </div>
+
+
     </section>
   );
 });

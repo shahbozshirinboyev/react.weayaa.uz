@@ -8,6 +8,10 @@ import News from "../components/News";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
+// logo
+import logoBlack from '/img/logo/logo-black.png';
+import logoWhite from '/img/logo/logo-white.png';
+
 function RootLayout() {
   const home = useRef(null);
   const members = useRef(null);
@@ -42,6 +46,10 @@ function RootLayout() {
       name: "Contact",
     },
   ];
+
+  const [activeRef, setActiveRef] = useState(
+    home);
+
   const [openMenus, setOpenMenus] = useState(false);
 
   const [scrollY, setScrollY] = useState(0);
@@ -71,8 +79,8 @@ function RootLayout() {
         } transition-all duration-300 border border-green-700`}
       >
         <ul className="container flex items-center mx-auto gap-4 text-center border border-red-700">
-          <li className="text-start w-full text-[30px]">
-            <p className="font-bold border border-sky-800">logo.</p>
+          <li className="text-start w-full text-[30px] border border-red-700">
+            <img src={ scrollY > 50 ? logoBlack : logoWhite} alt="Logo" className="transition-all duration-300" />
           </li>
 
           {menus.map((menu) => (
@@ -81,7 +89,7 @@ function RootLayout() {
               onClick={() => {
                 scrollToSection(menu.ref);
               }}
-              className="cursor-pointer w-[480px] border border-sky-500 hidden md:block"
+              className={`cursor-pointer w-[480px] font-bold border border-sky-500 hidden md:block ${ activeRef === menu.ref ? "text-green-700" : "text-black"}`}
             >
               {menu.name}
             </li>
