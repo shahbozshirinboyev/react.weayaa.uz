@@ -1,4 +1,6 @@
 import { useRef, useState, useEffect } from "react";
+// motion framer
+import { motion, AnimatePresence } from "framer-motion";
 
 // components
 import Home from "../components/Home";
@@ -13,11 +15,24 @@ import logoBlack from "/img/logo/logo-black.png";
 import logoWhite from "/img/logo/logo-white.png";
 
 function RootLayout() {
+
   const home = useRef(null);
   const members = useRef(null);
   const art = useRef(null);
   const news = useRef(null);
   const contact = useRef(null);
+
+  // Loading -- Start
+  const [loader, setLoader] = useState(true);
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setLoader(!loader);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  // Loading -- End
 
   const menus = [
     {
@@ -49,10 +64,10 @@ function RootLayout() {
 
   const [activeRef, setActiveRef] = useState(home);
 
-  const [openMenus, setOpenMenus] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const [scrollY, setScrollY] = useState(0);
-  const [languageBtn, setLanguageBrn] = useState(false)
+  const [languageBtn, setLanguageBrn] = useState(false);
 
   const scrollToSection = (sectionRef) => {
     if (sectionRef.current) {
@@ -96,11 +111,25 @@ function RootLayout() {
 
   return (
     <>
+
+    {/* Loader start */}
+      <section className={`fixed flex z-[1000] overflow-hidden transition-all ease-in-out duration-500 justify-center items-center bg-black w-full ${ loader ? "max-h-screen h-screen opacity-100" : "max-h-0 h-screen opacity-0"}`}>
+        <div className="p-6 block mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01], }}
+            className="flex justify-center items-center w-[300px] h-[300px]"
+          >
+            <div className="loader"></div>
+          </motion.div>
+        </div>
+      </section>
+      {/* Loader end */}
+
       {/* Navbar Section =============> */}
       <section
-        className={`fixed w-full px-2 ${
-          scrollY > 50 ? "py-4 bg-white" : "py-8 bg-transparent"
-        } transition-all duration-300`}
+        className={`fixed w-full px-2 ${ scrollY > 50 ? "py-4 bg-white" : "py-8 bg-transparent"} transition-all duration-300`}
       >
         <ul className="container flex items-center mx-auto gap-4 text-center">
           <li className="text-start w-full text-[30px]">
@@ -129,114 +158,150 @@ function RootLayout() {
           ))}
 
           <li className="cursor-pointer w-full text-end hidden lg:block">
-      
             <div className="relative inline-block text-left font-bold">
-
               <div className="relative">
                 <button
-                onClick={() => setLanguageBrn(!languageBtn)}
+                  onClick={() => setLanguageBrn(!languageBtn)}
                   type="button"
-                  className={`${ scrollY > 50 ? "text-black" : "text-white" } inline-flex w-full justify-center gap-x-1.5 hover:text-green-700 px-3 py-2 transition-all duration-300`}
+                  className={`${
+                    scrollY > 50 ? "text-black" : "text-white"
+                  } inline-flex w-full justify-center gap-x-1.5 hover:text-green-700 px-3 py-2 transition-all duration-300`}
                 >
                   En
-                { !languageBtn && <i className="bi bi-chevron-down"></i>}
-                { languageBtn && <i className="bi bi-chevron-up"></i>}
+                  {!languageBtn && <i className="bi bi-chevron-down"></i>}
+                  {languageBtn && <i className="bi bi-chevron-up"></i>}
                 </button>
               </div>
 
-              { languageBtn && <div
-                className="absolute right-0 z-10 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-300"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="menu-button"
-                tabindex="-1"
-              >
-                <div className="py-1" role="none">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
-                    role="menuitem"
-                    tabindex="-1"
-                    id="menu-item-0"
-                  >
-                    English
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
-                    role="menuitem"
-                    tabindex="-1"
-                    id="menu-item-1"
-                  >
-                    O'zbek
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
-                    role="menuitem"
-                    tabindex="-1"
-                    id="menu-item-2"
-                  >
-                    Korean
-                  </a>
-                  <form method="POST" action="#" role="none">
-                    <button
-                      type="submit"
-                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-green-100"
+              {languageBtn && (
+                <div
+                  className="absolute right-0 z-10 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-300"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="menu-button"
+                  tabindex="-1"
+                >
+                  <div className="py-1" role="none">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
                       role="menuitem"
                       tabindex="-1"
-                      id="menu-item-3"
+                      id="menu-item-0"
                     >
-                      Russian
-                    </button>
-                  </form>
+                      English
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="menu-item-1"
+                    >
+                      O'zbek
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="menu-item-2"
+                    >
+                      Korean
+                    </a>
+                    <form method="POST" action="#" role="none">
+                      <button
+                        type="submit"
+                        className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-green-100"
+                        role="menuitem"
+                        tabindex="-1"
+                        id="menu-item-3"
+                      >
+                        Russian
+                      </button>
+                    </form>
+                  </div>
                 </div>
-              </div>}
-
+              )}
             </div>
-            
           </li>
 
           <li
             onClick={() => {
-              setOpenMenus(!openMenus);
+              setOpen(!open); console.log("menu burger")
             }}
-            className="text-end border w-[50px] text-[30px] flex justify-center items-center  text-black md:hidden cursor-pointer"
+            className={`text-end w-[50px] text-[30px] flex justify-center items-center  ${ scrollY > 50 ? "text-black" : "text-white"} md:hidden cursor-pointer transition-all duration-300`}
           >
-            <i className="bi bi-list font-bold"></i>
+            { !open &&  <i className="bi bi-list font-bold"></i>}
+            { open && <i className="bi bi-x-lg font-bold"></i>}
           </li>
         </ul>
-      </section>
 
-      {openMenus && (
-        <div
-          className={`bg-red-300 fixed w-[calc(100%-16px)] ml-2 mr-2 ${
-            scrollY > 50 ? "mt-[90px]" : "mt-[120px]"
-          } transition-all duration-300 p-4 md:hidden`}
-        >
-          <ul className="items-center text-center p-2 border border-red-700">
-            <li className="text-start text-[20px] w-[250px] mt-4">
-              <p className="font-bold border border-sky-800">Menu:</p>
-            </li>
-
-            {menus.map((menu) => (
-              <li
-                key={menu.id}
-                onClick={() => {
-                  scrollToSection(menu.ref);
-                }}
-                className="cursor-pointer border mt-4 w-[250px] border-sky-500"
-              >
-                {menu.name}
+        <AnimatePresence mode="wait">
+        { open && <motion.div
+            initial={{ opacity: 0, y: -300 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -300 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            className={`bg-white shadow-md fixed w-[calc(100%-16px)] ${
+              scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
+            } p-4 md:hidden`}
+          >
+            <ul className="items-center text-center p-2 border border-red-700">
+              <li className="text-start text-[20px] mt-4">
+                <p className="font-bold border border-sky-800">Menu:</p>
               </li>
-            ))}
 
-            <li className="border border-sky-800 mt-4 mb-4 w-[250px]">
-              <p className="font-bold">En </p>
-            </li>
-          </ul>
-        </div>
-      )}
+              {menus.map((menu) => (
+                <li
+                  key={menu.id}
+                  onClick={() => {
+                    scrollToSection(menu.ref);
+                  }}
+                  className="cursor-pointer border mt-4 w-[250px] border-sky-500"
+                >
+                  {menu.name}
+                </li>
+              ))}
+
+              <li className="border border-sky-800 mt-4 mb-4 w-[250px]">
+                <p className="font-bold">En </p>
+              </li>
+            </ul>
+          </motion.div>}
+        </AnimatePresence>
+
+        {/* {openMenus && (
+          <div
+            className={`bg-red-300 fixed w-[calc(100%-16px)] ${
+              scrollY > 50 ? "mt-[90px]" : "mt-[120px]"
+            } transition-all duration-300 p-4 md:hidden`}
+          >
+            <ul className="items-center text-center p-2 border border-red-700">
+              <li className="text-start text-[20px] w-[250px] mt-4">
+                <p className="font-bold border border-sky-800">Menu:</p>
+              </li>
+
+              {menus.map((menu) => (
+                <li
+                  key={menu.id}
+                  onClick={() => {
+                    scrollToSection(menu.ref);
+                  }}
+                  className="cursor-pointer border mt-4 w-[250px] border-sky-500"
+                >
+                  {menu.name}
+                </li>
+              ))}
+
+              <li className="border border-sky-800 mt-4 mb-4 w-[250px]">
+                <p className="font-bold">En </p>
+              </li>
+            </ul>
+          </div>
+        )} */}
+
+      </section>
 
       {/* Home Section =============> */}
       <section>
