@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 // logo
 import logoBlack from "/img/logo/logo-black.png";
 import logoWhite from "/img/logo/logo-white.png";
+import { div } from "framer-motion/client";
 
 function RootLayout() {
 
@@ -39,26 +40,31 @@ function RootLayout() {
       id: 1,
       ref: home,
       name: "Home",
+      icon: "bi bi-house"
     },
     {
       id: 2,
       ref: members,
       name: "Members",
+      icon: "bi bi-people"
     },
     {
       id: 3,
       ref: art,
       name: "Art",
+      icon: "bi bi-brush"
     },
     {
       id: 4,
       ref: news,
       name: "News",
+      icon: "bi bi-newspaper"
     },
     {
       id: 5,
       ref: contact,
       name: "Contact",
+      icon: "bi bi-info-circle"
     },
   ];
 
@@ -129,7 +135,7 @@ function RootLayout() {
 
       {/* Navbar Section =============> */}
       <section
-        className={`fixed w-full px-2 ${ scrollY > 50 ? "py-4 bg-white" : "py-8 bg-transparent"} transition-all duration-300`}
+        className={`fixed w-full px-2 ${ scrollY > 50 ? "py-4 bg-white bg-opacity-90" : "py-8 bg-transparent"} transition-all duration-300`}
       >
         <ul className="container flex items-center mx-auto gap-4 text-center">
           <li className="text-start w-full text-[30px]">
@@ -147,10 +153,10 @@ function RootLayout() {
                 scrollToSection(menu.ref);
                 setActiveRef(menu.ref);
               }}
-              className={`cursor-pointer w-[480px] font-bold hover:text-green-700 transition-all duration-300 ${
-                scrollY > 50 ? "text-green" : "text-white"
+              className={`cursor-pointer w-[480px] font-semibold hover:text-opacity-60 transition-all duration-300 ${
+                scrollY > 50 ? "text-mainColor" : "text-white"
               } hidden md:block ${
-                activeRef === menu.ref ? "text-green-700" : "text-black"
+                activeRef === menu.ref ? "text-opacity-60" : "text-opacity-100"
               }`}
             >
               {menu.name}
@@ -164,8 +170,8 @@ function RootLayout() {
                   onClick={() => setLanguageBrn(!languageBtn)}
                   type="button"
                   className={`${
-                    scrollY > 50 ? "text-black" : "text-white"
-                  } inline-flex w-full justify-center gap-x-1.5 hover:text-green-700 px-3 py-2 transition-all duration-300`}
+                    scrollY > 50 ? "text-mainColor" : "text-white"
+                  } inline-flex w-full justify-center gap-x-1.5 hover:text-mainColor px-3 py-2 transition-all duration-300`}
                 >
                   En
                   {!languageBtn && <i className="bi bi-chevron-down"></i>}
@@ -228,12 +234,34 @@ function RootLayout() {
 
           <li
             onClick={() => {
-              setOpen(!open); console.log("menu burger")
+              setOpen(!open)
             }}
-            className={`text-end w-[50px] text-[30px] flex justify-center items-center  ${ scrollY > 50 ? "text-black" : "text-white"} md:hidden cursor-pointer transition-all duration-300`}
+            className={`text-end w-[50px] text-[30px] flex justify-center items-center  ${ scrollY > 50 ? "text-mainColor" : "text-white"} md:hidden cursor-pointer transition-all duration-300`}
           >
-            { !open &&  <i className="bi bi-list font-bold"></i>}
-            { open && <i className="bi bi-x-lg font-bold"></i>}
+            {/* { !open &&  <i className="bi bi-list font-bold"></i>}
+            { open && <i className="bi bi-x-lg font-bold"></i>} */}
+            { !open && 
+            <AnimatePresence mode="wait">
+              <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                <i className="bi bi-list font-bold"></i>
+              </motion.div>
+            </AnimatePresence>}
+            { open && 
+            <AnimatePresence mode="wait">
+              <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                <i className="bi bi-x-lg font-bold"></i>
+              </motion.div>
+            </AnimatePresence>}
           </li>
         </ul>
 
@@ -245,28 +273,19 @@ function RootLayout() {
             transition={{ duration: 0.3, delay: 0.2 }}
             className={`bg-white shadow-md fixed w-[calc(100%-16px)] ${
               scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
-            } p-4 md:hidden`}
+            } p-4 md:hidden rounded-md`}
           >
-            <ul className="items-center text-center p-2 border border-red-700">
-              <li className="text-start text-[20px] mt-4">
-                <p className="font-bold border border-sky-800">Menu:</p>
-              </li>
+            <ul className="items-center text-center p-2">
 
               {menus.map((menu) => (
                 <li
                   key={menu.id}
-                  onClick={() => {
-                    scrollToSection(menu.ref);
-                  }}
-                  className="cursor-pointer border mt-4 w-[250px] border-sky-500"
+                  onClick={() => {scrollToSection(menu.ref);}}
+                  className="text-start text-mainColor font-semibold cursor-pointer my-4"
                 >
-                  {menu.name}
+                  <i className={menu.icon}></i> &nbsp;&nbsp; {menu.name}
                 </li>
               ))}
-
-              <li className="border border-sky-800 mt-4 mb-4 w-[250px]">
-                <p className="font-bold">En </p>
-              </li>
             </ul>
           </motion.div>}
         </AnimatePresence>
