@@ -75,13 +75,15 @@ const Members = forwardRef((props, ref) => {
       label: "Designer",
     },
   ];
-   // Arrayni ikki marta aylanish uchun ikki marta takrorlash
-   const doubledMembers = [...members, ...members];
+  // Arrayni ikki marta aylanish uchun ikki marta takrorlash
+  const doubledMembers = [...members, ...members];
   return (
     <section ref={ref}>
-      <p className="font-semibold text-[24px] text-center my-[50px] text-mainColor">
-        Members
-      </p>
+      <div>
+        <p className="font-semibold text-[24px] text-center my-[50px] text-mainColor">
+          Members
+        </p>
+      </div>
 
       <div className="mb-[50px]">
         <div className="flex overflow-x-hidden">
