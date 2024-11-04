@@ -1,12 +1,14 @@
 import React, { useState, useEffect, forwardRef } from "react";
 
 const Home = forwardRef((props, ref) => {
-
   // background change img start
-  const [bgImage, setBgImage] = useState('/img/background/img1.jpg');
+  const [bgImage, setBgImage] = useState("/img/background/img1.jpg");
 
   useEffect(() => {
-    const images = ['/img/background/img1.jpg', '/img/background/img2.jpg'];
+    const images = [
+      "/img/background/img1.jpg", 
+      "/img/background/img2.jpg",
+    ];
     let index = 0;
 
     const interval = setInterval(() => {
@@ -21,9 +23,10 @@ const Home = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className={`min-h-screen flex items-center justify-center text-white bg-[url('${bgImage}')] transition-all duration-500`}
+      style={{ backgroundImage: `url(${bgImage})` }}
+      className="min-h-screen flex items-center justify-center transition-all duration-500"
     >
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center text-white">
         <h1 className=" text-4xl lg:text-6xl font-bold mb-4">
           Welcome to WEAYAA
         </h1>

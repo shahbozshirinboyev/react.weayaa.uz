@@ -16,7 +16,6 @@ import logoWhite from "/img/logo/logo-white.png";
 import { div } from "framer-motion/client";
 
 function RootLayout() {
-
   const home = useRef(null);
   const members = useRef(null);
   const art = useRef(null);
@@ -26,7 +25,6 @@ function RootLayout() {
   // Loading -- Start
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-
     const timer = setTimeout(() => {
       setLoader(!loader);
     }, 2000);
@@ -40,31 +38,31 @@ function RootLayout() {
       id: 1,
       ref: home,
       name: "Home",
-      icon: "bi bi-house"
+      icon: "bi bi-house",
     },
     {
       id: 2,
       ref: members,
       name: "Members",
-      icon: "bi bi-people"
+      icon: "bi bi-people",
     },
     {
       id: 3,
       ref: art,
       name: "Art",
-      icon: "bi bi-brush"
+      icon: "bi bi-brush",
     },
     {
       id: 4,
       ref: news,
       name: "News",
-      icon: "bi bi-newspaper"
+      icon: "bi bi-newspaper",
     },
     {
       id: 5,
       ref: contact,
       name: "Contact",
-      icon: "bi bi-info-circle"
+      icon: "bi bi-info-circle",
     },
   ];
 
@@ -98,12 +96,18 @@ function RootLayout() {
         }
       });
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [menus]);
+
+  useEffect(() => {
+    if (scrollY === 0) {
+      setActiveRef(home);
+    }
+    console.log("scrollY: " + scrollY);
+  }, [scrollY]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -117,14 +121,23 @@ function RootLayout() {
 
   return (
     <>
-
-    {/* Loader start */}
-      <section className={`fixed flex z-[1000] overflow-hidden transition-all ease-in-out duration-500 justify-center items-center bg-black w-full ${ loader ? "max-h-screen h-screen opacity-100" : "max-h-0 h-screen opacity-0"}`}>
+      {/* Loader start */}
+      <section
+        className={`fixed flex z-[1000] overflow-hidden transition-all ease-in-out duration-500 justify-center items-center bg-black w-full ${
+          loader
+            ? "max-h-screen h-screen opacity-100"
+            : "max-h-0 h-screen opacity-0"
+        }`}
+      >
         <div className="p-6 block mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01], }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
             className="flex justify-center items-center w-[300px] h-[300px]"
           >
             <div className="loader"></div>
@@ -135,7 +148,9 @@ function RootLayout() {
 
       {/* Navbar Section =============> */}
       <section
-        className={`fixed w-full px-2 ${ scrollY > 50 ? "py-2 bg-white bg-opacity-90" : "py-4 bg-transparent"} transition-all duration-300`}
+        className={`fixed w-full px-2 ${
+          scrollY > 50 ? "py-2 bg-white bg-opacity-90" : "py-4 bg-transparent"
+        } transition-all duration-500`}
       >
         <ul className="container flex items-center mx-auto gap-4 text-center">
           <li className="text-start w-full text-[30px]">
@@ -234,60 +249,73 @@ function RootLayout() {
 
           <li
             onClick={() => {
-              setOpen(!open)
+              setOpen(!open);
             }}
-            className={`text-end w-[50px] text-[30px] flex justify-center items-center  ${ scrollY > 50 ? "text-mainColor" : "text-white"} md:hidden cursor-pointer transition-all duration-300`}
+            className={`text-end w-[50px] text-[30px] flex justify-center items-center  ${
+              scrollY > 50 ? "text-mainColor" : "text-white"
+            } md:hidden cursor-pointer transition-all duration-300`}
           >
             {/* { !open &&  <i className="bi bi-list font-bold"></i>}
             { open && <i className="bi bi-x-lg font-bold"></i>} */}
-            { !open && 
-            <AnimatePresence mode="wait">
-              <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              >
-                <i className="bi bi-list font-bold"></i>
-              </motion.div>
-            </AnimatePresence>}
-            { open && 
-            <AnimatePresence mode="wait">
-              <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              >
-                <i className="bi bi-x-lg font-bold"></i>
-              </motion.div>
-            </AnimatePresence>}
+            {!open && (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                  <i className="bi bi-list font-bold"></i>
+                </motion.div>
+              </AnimatePresence>
+            )}
+            {open && (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                  <i className="bi bi-x-lg font-bold"></i>
+                </motion.div>
+              </AnimatePresence>
+            )}
           </li>
         </ul>
 
         <AnimatePresence mode="wait">
-        { open && <motion.div
-            initial={{ opacity: 0, y: -300 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -300 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            className={`bg-white shadow-md fixed w-[calc(100%-16px)] ${
-              scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
-            } p-4 md:hidden rounded-md`}
-          >
-            <ul className="items-center text-center p-2">
-
-              {menus.map((menu) => (
-                <li
-                  key={menu.id}
-                  onClick={() => {scrollToSection(menu.ref);}}
-                  className="text-start text-mainColor font-semibold cursor-pointer my-4"
-                >
-                  <i className={menu.icon}></i> &nbsp;&nbsp; {menu.name}
-                </li>
-              ))}
-            </ul>
-          </motion.div>}
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, y: -300 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -300 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className={`bg-white shadow-md fixed w-[calc(100%-16px)] ${
+                scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
+              } p-4 md:hidden rounded-md`}
+            >
+              <ul className="items-center text-center p-2">
+                {menus.map((menu) => (
+                  <li
+                    key={menu.id}
+                    onClick={() => {
+                      scrollToSection(menu.ref);
+                    }}
+                    className={`text-start text-mainColor font-semibold cursor-pointer my-4
+                    ${
+                      activeRef === menu.ref
+                        ? "text-opacity-60"
+                        : "text-opacity-100"
+                    }
+                    transition-all duration-500`}
+                  >
+                    <i className={menu.icon}></i> &nbsp;&nbsp; {menu.name}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
         </AnimatePresence>
 
         {/* {openMenus && (
@@ -319,7 +347,6 @@ function RootLayout() {
             </ul>
           </div>
         )} */}
-
       </section>
 
       {/* Home Section =============> */}
