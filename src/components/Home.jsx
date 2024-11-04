@@ -2,12 +2,12 @@ import React, { useState, useEffect, forwardRef } from "react";
 
 const Home = forwardRef((props, ref) => {
   // background change img start
-  const [bgImage, setBgImage] = useState("/img/background/img1.jpg");
+  const [bgImage, setBgImage] = useState("/images/background/img1.jpg");
 
   useEffect(() => {
     const images = [
-      "/img/background/img1.jpg", 
-      "/img/background/img2.jpg",
+      "/images/background/img1.jpg", 
+      "/images/background/img2.jpg",
     ];
     let index = 0;
 

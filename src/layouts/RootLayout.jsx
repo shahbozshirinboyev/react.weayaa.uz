@@ -11,8 +11,8 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 // logo
-import logoBlack from "/img/logo/logo-black.png";
-import logoWhite from "/img/logo/logo-white.png";
+import logoBlack from "/images/logo/logo-black.png";
+import logoWhite from "/images/logo/logo-white.png";
 import { div } from "framer-motion/client";
 
 function RootLayout() {
@@ -149,7 +149,7 @@ function RootLayout() {
       {/* Navbar Section =============> */}
       <section
         className={`fixed w-full px-2 ${
-          scrollY > 50 ? "py-2 bg-white bg-opacity-90" : "py-4 bg-transparent"
+          scrollY > 50 ? "py-4 bg-white bg-opacity-90" : "py-6 bg-transparent"
         } transition-all duration-500`}
       >
         <ul className="container flex items-center mx-auto gap-4 text-center">
