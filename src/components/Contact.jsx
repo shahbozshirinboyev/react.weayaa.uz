@@ -10,7 +10,7 @@ const Contact = forwardRef((props, ref) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
       <div>
-          <div className="grid grid-cols-4 border mb-4">
+          <div className="grid grid-cols-4 border">
             <div className="flex justify-center items-center">
               <i className="bi bi-geo-alt"></i>
             </div>
