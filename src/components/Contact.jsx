@@ -1,8 +1,9 @@
 import React, { forwardRef } from "react";
+import { ContactInfo } from "../data/data";
 
 const Contact = forwardRef((props, ref) => {
   return (
-    <section ref={ref} className="container p-4 pt-0">
+    <section ref={ref} className="container p-4 pt-0 pb-[25px]">
       <div className="">
         <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">
           Contact Us
@@ -17,15 +18,12 @@ const Contact = forwardRef((props, ref) => {
             </div>
             <div className="col-span-3">
               <h1 className="font-bold text-mainColor">Address</h1>
-              <h4 className="text-mainColor">
-                Tashkent city, Upper Chirchik district, Qorasuv MFY, Y.Rajabiy
-                street.
-              </h4>
+              <h4 className="text-mainColor">{ContactInfo[0].address}</h4>
             </div>
           </div>
           <div>
             <iframe
-              src="https://yandex.uz/map-widget/v1/-/CDh-rVzn"
+              src={ContactInfo[0].location}
               className="w-full h-[250px] border rounded-xl border-mainColor border-opacity-40"
               allowfullscreen="true"
             ></iframe>
@@ -35,7 +33,7 @@ const Contact = forwardRef((props, ref) => {
         <div>
           <form className="grid grid-cols-1 text-mainColor">
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal">First Name:</span>
+              <span className="font-normal text-[14px]">First Name:</span>
               <input
                 type="text"
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
@@ -43,7 +41,7 @@ const Contact = forwardRef((props, ref) => {
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal">Last Name:</span>
+              <span className="font-normal  text-[14px]">Last Name:</span>
               <input
                 type="text"
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
@@ -51,7 +49,7 @@ const Contact = forwardRef((props, ref) => {
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal">Your Email:</span>
+              <span className="font-normal  text-[14px]">Your Email:</span>
               <input
                 type="email"
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
@@ -59,7 +57,7 @@ const Contact = forwardRef((props, ref) => {
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal">Your Message:</span>
+              <span className="font-normal  text-[14px]">Your Message:</span>
               <textarea
                 name=""
                 id=""
