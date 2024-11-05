@@ -24,7 +24,7 @@ const Home = forwardRef((props, ref) => {
     <section
       ref={ref}
       style={{ backgroundImage: `url(${bgImage})` }}
-      className="min-h-screen flex items-center justify-center transition-all duration-500"
+      className="min-h-screen flex items-center justify-center transition-all duration-500 bg-no-repeat bg-cover"
     >
       <div className="container mx-auto text-center text-white">
         <h1 className=" text-4xl lg:text-6xl font-bold mb-4">
