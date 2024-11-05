@@ -33,3 +33,12 @@
 }
 
   /* Loader end */
+
+  .mySwiper .swiper-pagination-bullet {
+    background-color: #2e67349d; /* Change to your desired color */
+  }
+  
+  .mySwiper .swiper-pagination-bullet-active {
+    background-color: #2E6734; /* Change to your desired active bullet color */
+  }
+  
