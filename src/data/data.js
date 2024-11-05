@@ -2,6 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export const HomeInfo = [
   {
+    logoWhite: "/images/logo/logo-white.png",
+    logoBlack: "/images/logo/logo-black.png",
     title: "Welcome to WEAYAA",
     info: "Global Contents Development Company",
     description:

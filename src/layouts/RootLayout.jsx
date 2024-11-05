@@ -27,7 +27,7 @@ function RootLayout() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(!loader);
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -138,9 +138,26 @@ function RootLayout() {
               delay: 0.5,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="flex justify-center items-center w-[300px] h-[300px]"
+            className="flex flex-col justify-center items-center w-[300px] h-[300px]"
           >
-            <div className="loader"></div>
+            <div>
+              <img src={logoWhite} alt="" />
+            </div>
+            <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.8,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
+            className="flex justify-center items-center"
+          >
+            <div className="loader mt-5">
+              
+            </div>
+            
+          </motion.div>
           </motion.div>
         </div>
       </section>
