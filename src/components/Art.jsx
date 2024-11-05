@@ -33,7 +33,7 @@ const Art = forwardRef((props, ref) => {
   const [open, setOpen] = useState(false);
   const slides = images.map((item) => ({ src: item.img }));
   const handleImageClick = (img) => {
-    const imgIndex = slides.findIndex(slide => slide.src === img); // Rasmni slides massividan topish
+    const imgIndex = slides.findIndex((slide) => slide.src === img); // Rasmni slides massividan topish
     setActiveImg(img);
     setOpen(true);
   };
@@ -97,7 +97,7 @@ const Art = forwardRef((props, ref) => {
           plugins={[Zoom]}
           close={() => setOpen(false)}
           slides={slides} // slidesni bu yerga beramiz
-          index={slides.findIndex(slide => slide.src === activeImg)}
+          index={slides.findIndex((slide) => slide.src === activeImg)}
           carousel={{ finite: true }}
           styles={{ container: { backgroundColor: "rgba(0, 0, 0, .9)" } }}
           // render={{

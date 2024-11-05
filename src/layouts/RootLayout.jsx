@@ -149,7 +149,9 @@ function RootLayout() {
       {/* Navbar Section =============> */}
       <section
         className={`fixed w-full px-2 z-[99] ${
-          scrollY > 50 ? "py-4 bg-white bg-opacity-90 shadow-md" : "py-6 bg-transparent"
+          scrollY > 50
+            ? "py-4 bg-white bg-opacity-90 shadow-md"
+            : "py-6 bg-transparent"
         } transition-all duration-500`}
       >
         <ul className="container flex items-center mx-auto gap-4 text-center">

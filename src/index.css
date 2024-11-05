@@ -15,30 +15,38 @@
 .loader::after {
   content: "";
   grid-area: 1/1;
-  background:#f77825;
+  background: #f77825;
   animation: inherit;
   animation-name: l4-1;
 }
 .loader::after {
-  background: #60B99A;
+  background: #60b99a;
   --s: 60deg;
 }
 @keyframes l4-0 {
-  0%,20% {transform: rotate(0)}
-  100%   {transform: rotate(90deg)}
+  0%,
+  20% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
 }
 @keyframes l4-1 {
-  50% {transform: rotate(var(--s,30deg))}
-  100% {transform: rotate(0)}
+  50% {
+    transform: rotate(var(--s, 30deg));
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 
-  /* Loader end */
+/* Loader end */
 
-  .mySwiper .swiper-pagination-bullet {
-    background-color: #2e67349d; /* Change to your desired color */
-  }
-  
-  .mySwiper .swiper-pagination-bullet-active {
-    background-color: #2E6734; /* Change to your desired active bullet color */
-  }
-  
+.mySwiper .swiper-pagination-bullet {
+  background-color: #2e67349d; /* Change to your desired color */
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #2e6734; /* Change to your desired active bullet color */
+}

@@ -62,7 +62,10 @@ const News = forwardRef((props, ref) => {
         }}
       >
         {NewsInfo.map((news) => (
-          <SwiperSlide className="border border-mainColor rounded-lg border-opacity-40" key={news.id}>
+          <SwiperSlide
+            className="border border-mainColor rounded-lg border-opacity-40"
+            key={news.id}
+          >
             <div className="grid grid-cols-1">
               <img
                 className="rounded-t-lg w-full object-cover h-[250px]"
@@ -79,9 +82,7 @@ const News = forwardRef((props, ref) => {
                   <span> By </span>
                   <span>{news.by}</span>
                 </h2>
-                <p className="text-mainColor">
-                  {news.description}
-                </p>
+                <p className="text-mainColor">{news.description}</p>
                 <button className="border border-mainColor border-opacity-40 text-mainColor w-[120px] rounded-lg px-2 py-1 mt-4">
                   Read More
                 </button>

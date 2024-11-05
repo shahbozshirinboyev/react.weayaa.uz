@@ -1,4 +1,5 @@
 import React, { useState, useEffect, forwardRef } from "react";
+import { HomeInfo } from "../data/data";
 
 const Home = forwardRef((props, ref) => {
   // background change img start
@@ -6,7 +7,7 @@ const Home = forwardRef((props, ref) => {
 
   useEffect(() => {
     const images = [
-      "/images/background/img1.jpg", 
+      "/images/background/img1.jpg",
       "/images/background/img2.jpg",
     ];
     let index = 0;
@@ -28,18 +29,13 @@ const Home = forwardRef((props, ref) => {
     >
       <div className="container mx-auto text-center text-white">
         <h1 className=" text-4xl lg:text-6xl font-bold mb-4">
-          Welcome to WEAYAA
+          {HomeInfo[0].title}
         </h1>
         <p className="text-xl xl:text-3xl font-bold text-green-300">
-          Global Contents Development Company
+          {HomeInfo[0].info}
         </p>
         <p className="text-md lg:text-xl lg:mx-32 my-4 font-semibold">
-          WeaYaa is the best content development company in Uzbekistan. We are
-          located in Korea and Uzbekistan, and we are developing all visual
-          contents (games, animations, movies, interiors, architecture,
-          products, promotions) with the best effort. We aim to become a global
-          company that leads the market based on constant challenge and
-          beautiful sense.
+          {HomeInfo[0].description}
         </p>
       </div>
     </section>

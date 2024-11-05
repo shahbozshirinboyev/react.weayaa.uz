@@ -4,7 +4,6 @@ import { ContactInfo } from "../data/data";
 const Contact = forwardRef((props, ref) => {
   return (
     <section ref={ref} className="container p-4 pt-0 pb-[25px]">
-
       <div>
         <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">
           Contact Us
@@ -12,7 +11,6 @@ const Contact = forwardRef((props, ref) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-
         <div>
           <div className="grid grid-cols-4 border rounded-xl border-mainColor border-opacity-40 mb-4 py-4 px-2">
             <div className="flex justify-center items-center text-mainColor">
@@ -73,9 +71,7 @@ const Contact = forwardRef((props, ref) => {
             </button>
           </form>
         </div>
-
       </div>
-
     </section>
   );
 });
