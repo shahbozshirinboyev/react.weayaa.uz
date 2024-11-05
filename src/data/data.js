@@ -12,7 +12,7 @@ const categories = [
       },
       {
         id: uuidv4(),
-        img: "/images/art/characters/human.jpg",
+        img: "/images/art/characters/bpr_human.jpg",
         title: ""
       },
       {
