@@ -31,6 +31,12 @@ const Art = forwardRef((props, ref) => {
     console.log(images);
   };
   const [open, setOpen] = useState(false);
+  const slides = images.map((item) => ({ src: item.img }));
+  const handleImageClick = (img) => {
+    const imgIndex = slides.findIndex(slide => slide.src === img); // Rasmni slides massividan topish
+    setActiveImg(img);
+    setOpen(true);
+  };
 
   const [activeImg, setActiveImg] = useState("");
   return (
@@ -76,10 +82,7 @@ const Art = forwardRef((props, ref) => {
               className="m-2 transition-all duration-300 cursor-pointer"
             >
               <img
-                onClick={() => {
-                  setOpen(true);
-                  setActiveImg(item.img);
-                }}
+                onClick={() => handleImageClick(item.img)}
                 className="w-full transition-all duration-300 rounded-lg shadow-md hover:opacity-50"
                 src={item.img}
                 alt={item.title}
@@ -93,13 +96,14 @@ const Art = forwardRef((props, ref) => {
           open={open}
           plugins={[Zoom]}
           close={() => setOpen(false)}
-          slides={[{ src: `${activeImg}` }]}
+          slides={slides} // slidesni bu yerga beramiz
+          index={slides.findIndex(slide => slide.src === activeImg)}
           carousel={{ finite: true }}
           styles={{ container: { backgroundColor: "rgba(0, 0, 0, .9)" } }}
-          render={{
-            buttonPrev: () => null, // Chapga o'tkazuvchi tugmani o'chiradi
-            buttonNext: () => null, // O'ngga o'tkazuvchi tugmani o'chiradi
-          }}
+          // render={{
+          //   buttonPrev: () => null, // Chapga o'tkazuvchi tugmani o'chiradi
+          //   buttonNext: () => null, // O'ngga o'tkazuvchi tugmani o'chiradi
+          // }}
           zoom={{
             maxZoomPixelRatio: 5, // Zoom imkoniyatlarini oshiradi (bu qiymatni oshirishingiz mumkin)
             zoomInMultiplier: 2, // Zoom bosqichlari tezligini boshqaradi
