@@ -106,7 +106,7 @@ function RootLayout() {
     if (scrollY === 0) {
       setActiveRef(home);
     }
-    console.log("scrollY: " + scrollY);
+    // console.log("scrollY: " + scrollY);
   }, [scrollY]);
 
   useEffect(() => {

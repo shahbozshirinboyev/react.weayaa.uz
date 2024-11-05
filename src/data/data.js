@@ -1,5 +1,290 @@
 import { v4 as uuidv4 } from 'uuid';
 
+const categories = [
+  {
+    id: 1,
+    name: "Characters",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/characters/bpr_composite.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/characters/human.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/characters/girl_3d.jpg",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Monsters",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/monsters/bighero.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/monsters/dragonchild.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/monsters/monster_1.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/monsters/robotworker.jpg",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Weapons",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/weapons/hammer.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/weapons/shield.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/weapons/sword_0.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/weapons/sword_high.jpg",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Guns",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/goldgun.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/goldguns.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_1.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_2.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_3.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_4.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_5.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_6.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gun_7.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gunone.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gunpattern.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/gunpatterns.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/scifi.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/guns/scifi_all.jpg",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Architecture",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/architecture/InteriorDesign_1.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/architecture/InteriorDesign_2.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/architecture/InteriorDesign_3.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/architecture/InteriorDesign_4.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/architecture/InteriorDesign_5.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/architecture/warehouse.jpg",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "UI/UX",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/ui-ux/cartoon_game.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/ui-ux/cartoon_icon.png",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/ui-ux/cartoon_map.png",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/ui-ux/cartoon_prise.png",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "Promotions",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/branding_in_items.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/modern_1.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/modern_2.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/modern_3.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/modern_4.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/modern_5.jpg",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/promotions/modern_6.jpg",
+        title: ""
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: "View",
+    counts: [
+      {
+        id: uuidv4(),
+        img: "/images/art/view/astrum.png",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/view/it_park.png",
+        title: ""
+      },
+      {
+        id: uuidv4(),
+        img: "/images/art/view/office.png",
+        title: ""
+      },
+    ],
+  },
+];
+const allCounts = categories.flatMap(category => category.counts);
+export const galleryInfo = [
+  {
+    id: 0,
+    name: "All Categories",
+    counts: allCounts
+  },
+  ...categories
+];
+
 export const NewsInfo = [
   {
     id: uuidv4(),
