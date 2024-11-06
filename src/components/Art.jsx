@@ -3,6 +3,9 @@ import { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
+// motion framer
+import { motion } from "framer-motion";
+
 // art data
 import { galleryInfo } from "../data/data";
 
@@ -77,7 +80,9 @@ const Art = forwardRef((props, ref) => {
       <>
         <div className="columns-2 lg:columns-3 xl:columns-4 py-8">
           {images.map((item) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
               key={item.id}
               className="m-2 transition-all duration-300 cursor-pointer"
             >
@@ -87,7 +92,7 @@ const Art = forwardRef((props, ref) => {
                 src={item.img}
                 alt={item.title}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </>
