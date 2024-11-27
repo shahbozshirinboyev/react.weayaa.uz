@@ -82,7 +82,7 @@ const News = forwardRef((props, ref) => {
                   <span> By </span>
                   <span>{news.by}</span>
                 </h2>
-                <p className="text-mainColor">{news.description}</p>
+                <p className="text-mainColor line-clamp-2">{news.description}</p>
                 <button className="border border-mainColor border-opacity-40 text-mainColor w-[120px] rounded-lg px-2 py-1 mt-4">
                   Read More
                 </button>
