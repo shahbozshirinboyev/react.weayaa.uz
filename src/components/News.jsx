@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
 import { div } from "framer-motion/client";
+import NewsModal from "./NewsModal";
 
 const News = forwardRef((props, ref) => {
   return (
@@ -83,9 +84,7 @@ const News = forwardRef((props, ref) => {
                   <span>{news.by}</span>
                 </h2>
                 <p className="text-mainColor line-clamp-2">{news.description}</p>
-                <button className="border border-mainColor border-opacity-40 text-mainColor w-[120px] rounded-lg px-2 py-1 mt-4">
-                  Read More
-                </button>
+                <NewsModal news={news.title} />
               </div>
             </div>
           </SwiperSlide>

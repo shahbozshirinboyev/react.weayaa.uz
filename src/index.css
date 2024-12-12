@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-width: thin;
+}
+
 /* Loader start */
 /* HTML: <div class="loader"></div> */
 .loader {
