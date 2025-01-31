@@ -41,6 +41,7 @@ function Navbar({setNavRef}) {
   const [open, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [languageBtn, setLanguageBrn] = useState(false);
+  const [activeId, setActiveId] = useState(1); 
   const navRef = useRef(null);
 
 useEffect(() => {
@@ -48,9 +49,26 @@ useEffect(() => {
 },[navRef?.current?.offsetHeight])
 
   useEffect(() => {
-    const handleScroll = () => { setScrollY(window.scrollY); };
+    const handleScroll = () => {
+      const sections = menus.map(menu => document.querySelector(menu.href));
+      const scrollPosition = window.scrollY + 100;
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveId(menus[index].id);
+          }
+        }
+      });
+
+      setScrollY(window.scrollY);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => { window.removeEventListener("scroll", handleScroll); };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollY]);
 
   return (
@@ -67,8 +85,10 @@ useEffect(() => {
           <li key={menu.id} className={`hidden md:flex`} >
             <a
               href={menu.href}
+              onClick={() => setActiveId(menu.id)}
               className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0
-                ${ scrollY > 50 ? "text-mainColor bg-mainColor bg-opacity-20" : "text-white bg-opacity-0" }`}
+                ${ scrollY > 50 ? "text-mainColor bg-mainColor bg-opacity-20" : "text-white bg-opacity-0" }
+                ${activeId === menu.id ? "!bg-mainColor !text-white" : ""}`}
             >
               {menu.name}
             </a>
@@ -192,11 +212,13 @@ useEffect(() => {
               {menus.map((menu) => (
                 <li
                   key={menu.id}
-                  className={`text-start text-mainColor font-semibold cursor-pointer my-4 transition-all duration-500`}
+                  className={`text-start text-mainColor font-semibold cursor-pointer my-4 transition-all duration-500 
+                    ${activeId === menu.id ? "!text-white !bg-mainColor rounded-md px-2 py-1" : ""}`}
                 >
                   <a
                     href={menu.href}
                     onClick={() => {
+                      setActiveId(menu.id);
                       setOpen(false);
                     }}
                   >
