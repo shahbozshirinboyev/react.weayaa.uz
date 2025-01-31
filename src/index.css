@@ -4,6 +4,7 @@
 
 * {
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 /* Loader start */
@@ -11,7 +12,7 @@
 .loader {
   width: 150px;
   height: 20px;
-  background: 
+  background:
     linear-gradient(90deg,rgba(255, 255, 255, 0.067) 33%,rgba(255, 255, 255, 0.333) 50%,rgba(255, 255, 255, 0.067) 66%)
     #000;
   background-size:300% 100%;

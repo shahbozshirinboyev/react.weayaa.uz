@@ -23,7 +23,7 @@ const Contact = forwardRef((props, ref) => {
           </div>
           <div className="h-[260px]">
             <iframe
-              src={ContactInfo[0].location}
+              // src={ContactInfo[0].location}
               className="w-full h-full border rounded-xl border-mainColor border-opacity-40"
               allowFullScreen={true}
             ></iframe>
