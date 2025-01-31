@@ -55,27 +55,27 @@ useEffect(() => {
 
   return (
     <section ref={navRef}
-      className={`fixed w-full px-2 z-[999] transition-all duration-300 border-2 border-sky-500
-        ${scrollY > 50 ? "py-2 bg-white bg-opacity-90" : "py-4 bg-transparent"}`}
+      className={`fixed w-full px-2 z-[999] transition-all duration-300
+        ${scrollY > 50 ? "py-2 bg-white bg-opacity-90 shadow-md" : "py-4 bg-transparent shadow-none"}`}
     >
       <ul className="container flex items-center mx-auto gap-4 text-center">
-        <li className="text-start w-full text-[30px] border border-red-700">
+        <li className="text-start w-full text-[30px]">
           <img src={scrollY > 50 ? logoBlack : logoWhite} alt="weayaa_logo" className="transition-all duration-300" />
         </li>
 
         {menus.map((menu) => (
-          <li key={menu.id} className="border border-red-700 px-2 py-1">
+          <li key={menu.id} className={`hidden md:flex`} >
             <a
               href={menu.href}
-              className={`cursor-pointer font-semibold hover:text-opacity-60 transition-all duration-300 hidden md:block
-                ${ scrollY > 50 ? "text-mainColor" : "text-white" }`}
+              className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0
+                ${ scrollY > 50 ? "text-mainColor bg-mainColor bg-opacity-20" : "text-white bg-opacity-0" }`}
             >
               {menu.name}
             </a>
           </li>
         ))}
 
-        <li className="cursor-pointer w-full text-end hidden lg:block border border-red-700">
+        <li className="cursor-pointer w-full text-end hidden lg:block">
           <div className="relative inline-block text-left font-bold">
             <div className="relative">
               <button
