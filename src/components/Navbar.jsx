@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logoBlack from "/images/logo/logo-black.png";
 import logoWhite from "/images/logo/logo-white.png";
 
-function Navbar({setNavRef}) {
+function Navbar({ setNavRef }) {
   const menus = [
     {
       id: 1,
@@ -41,12 +41,12 @@ function Navbar({setNavRef}) {
   const [open, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [languageBtn, setLanguageBrn] = useState(false);
-  const [activeId, setActiveId] = useState(1); 
+  const [activeId, setActiveId] = useState(1);
   const navRef = useRef(null);
 
-useEffect(() => {
-  setNavRef(navRef?.current?.offsetHeight)
-},[navRef?.current?.offsetHeight])
+  useEffect(() => {
+    setNavRef(navRef?.current?.offsetHeight)
+  }, [navRef?.current?.offsetHeight])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,34 +76,36 @@ useEffect(() => {
       className={`fixed w-full px-2 z-[999] transition-all duration-300
         ${scrollY > 50 ? "py-2 bg-white bg-opacity-90 shadow-md" : "py-4 bg-transparent shadow-none"}`}
     >
-      <ul className="container flex items-center mx-auto gap-4 text-center">
-        <li className="text-start w-full text-[30px]">
-          <img src={scrollY > 50 ? logoBlack : logoWhite} alt="weayaa_logo" className="transition-all duration-300" />
+      <ul className="container flex justify-between items-center mx-auto gap-4 text-center border border-red-700">
+
+        <li className="btn bg-transparent shadow-0 border hover:bg-transparent border-red-700">
+          <img src={scrollY > 50 ? logoBlack : logoWhite} alt="weayaa_logo" className="transition-all duration-300 w-[130px]" />
         </li>
 
-        {menus.map((menu) => (
-          <li key={menu.id} className={`hidden md:flex`} >
-            <a
-              href={menu.href}
-              onClick={() => setActiveId(menu.id)}
-              className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0
-                ${ scrollY > 50 ? "text-mainColor bg-mainColor bg-opacity-20" : "text-white bg-opacity-0" }
+        <div className="flex gap-4">
+          {menus.map((menu) => (
+            <li key={menu.id} className={`hidden md:flex border border-red-700`} >
+              <a
+                href={menu.href}
+                onClick={() => setActiveId(menu.id)}
+                className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0
+                ${scrollY > 50 ? "text-mainColor bg-mainColor bg-opacity-20" : "text-white bg-opacity-0"}
                 ${activeId === menu.id ? "!bg-mainColor !text-white" : ""}`}
-            >
-              {menu.name}
-            </a>
-          </li>
-        ))}
+              >
+                {menu.name}
+              </a>
+            </li>
+          ))}
+        </div>
 
-        <li className="cursor-pointer w-full text-end hidden lg:block">
+        <li className="cursor-pointer text-end hidden lg:block border border-red-700">
           <div className="relative inline-block text-left font-bold">
             <div className="relative">
               <button
                 onClick={() => setLanguageBrn(!languageBtn)}
                 type="button"
-                className={`${
-                  scrollY > 50 ? "text-mainColor" : "text-white"
-                } inline-flex w-full justify-center gap-x-1.5 hover:text-mainColor px-3 py-2 transition-all duration-300`}
+                className={`${scrollY > 50 ? "text-mainColor" : "text-white"
+                  } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 transition-all duration-300 btn bg-transparent border-0 btn-sm hover:bg-mainColor hover:text-white`}
               >
                 En
                 {!languageBtn && <i className="bi bi-chevron-down"></i>}
@@ -166,9 +168,8 @@ useEffect(() => {
 
         <li
           onClick={() => setOpen(!open)}
-          className={`text-end w-[50px] text-[30px] flex justify-center items-center ${
-            scrollY > 50 ? "text-mainColor" : "text-white"
-          } md:hidden cursor-pointer transition-all duration-300`}
+          className={`text-end w-[50px] text-[30px] flex justify-center items-center ${scrollY > 50 ? "text-mainColor" : "text-white"
+            } md:hidden cursor-pointer transition-all duration-300`}
         >
           {!open && (
             <AnimatePresence mode="wait">
@@ -204,25 +205,17 @@ useEffect(() => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -300 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className={`bg-white shadow-md fixed w-[calc(100%-16px)] ${
-              scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
-            } p-4 md:hidden rounded-md`}
+            className={`bg-white shadow-md fixed w-[calc(100%-16px)] p-2 md:hidden rounded-md border ${scrollY > 50 ? "mt-[26px]" : "mt-[26px]"}`}
           >
             <ul className="items-center text-center p-2">
               {menus.map((menu) => (
-                <li
-                  key={menu.id}
-                  className={`text-start text-mainColor font-semibold cursor-pointer my-4 transition-all duration-500 
-                    ${activeId === menu.id ? "!text-white !bg-mainColor rounded-md px-2 py-1" : ""}`}
-                >
+                <li key={menu.id} className="my-2">
                   <a
                     href={menu.href}
-                    onClick={() => {
-                      setActiveId(menu.id);
-                      setOpen(false);
-                    }}
-                  >
-                    <i className={menu.icon}></i> &nbsp;&nbsp; {menu.name}
+                    onClick={() => { setActiveId(menu.id); setOpen(false); }}
+                    className={`btn btn-sm w-full transition-all flex justify-start items-center duration-300 border-0 ${activeId === menu.id ? "text-white bg-mainColor" : "text-mainColor bg-mainColor bg-opacity-20"}`}>
+                    <i className={menu.icon}></i>
+                    <span>{menu.name}</span>
                   </a>
                 </li>
               ))}
