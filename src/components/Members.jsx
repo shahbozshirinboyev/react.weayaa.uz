@@ -8,15 +8,11 @@ const Members = forwardRef((props, ref) => {
   // Arrayni ikki marta aylanish uchun ikki marta takrorlash
   const doubledMembers = [...MembersInfo, ...MembersInfo];
   return (
-    <section ref={ref}>
-      <div>
-        <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">
-          Members
-        </p>
-      </div>
+    <section ref={ref} className="h-full">
 
-      <div className="">
-        <div className="flex overflow-x-hidden">
+        <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">Members</p>
+
+        <div className="flex overflow-x-hidden h-full items-center">
           <motion.div
             initial={{ x: "0" }}
             animate={{ x: "-100%" }}
@@ -25,25 +21,14 @@ const Members = forwardRef((props, ref) => {
             // style={{ width: "200%" }}
           >
             {doubledMembers.map((member, index) => (
-              <div
-                key={index}
-                className="m-2 border border-mainColor border-opacity-30 w-[230px] rounded-lg"
-              >
-                <img
-                  className="w-full h-[250px] object-cover rounded-t-lg"
-                  src={member.img}
-                />
-                <h4 className="text-center text-mainColor font-bold mt-2">
-                  {member.label}
-                </h4>
-                <h1 className="text-center text-mainColor font-bold text-opacity-60 mb-2">
-                  {member.name}
-                </h1>
+              <div key={index} className={`m-2 border border-mainColor border-opacity-30 w-[230px] rounded-lg ${ index % 2 === 0 ? "mt-56" : "mb-56"}`} >
+                <img className="w-full h-[250px] object-cover rounded-t-lg" src={member.img} />
+                <h4 className="text-center text-mainColor font-bold mt-2">{member.label}</h4>
+                <h1 className="text-center text-mainColor font-bold text-opacity-60 mb-2">{member.name}</h1>
               </div>
             ))}
           </motion.div>
         </div>
-      </div>
     </section>
   );
 });
