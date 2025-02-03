@@ -19,7 +19,7 @@ const Members = forwardRef((props, ref) => {
           {MembersInfo.map((member, index) => (
             <div
               key={index}
-              className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-lg`}
+              className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-md`}
             >
               <img className="w-full h-[320px] object-cover rounded-lg" src={member.img} />
               <div className="absolute bottom-[5px] left-[5px] bg-white bg-opacity-80 w-[250px] rounded-md p-2">
@@ -38,7 +38,7 @@ const Members = forwardRef((props, ref) => {
           {MembersInfo.map((member, index) => (
             <div
             key={index}
-            className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-lg`}
+            className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-md`}
           >
             <img className="w-full h-[320px] object-cover rounded-lg" src={member.img} />
             <div className="absolute bottom-[5px] left-[5px] bg-white bg-opacity-80 w-[250px] rounded-md p-2">
