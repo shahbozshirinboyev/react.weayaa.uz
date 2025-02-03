@@ -48,11 +48,6 @@ export const MembersInfo = [
     label: "Designer",
   },
   {
-    img: "/images/caricature_images/8.jpg",
-    name: "G'alimjan Anarkulov",
-    label: "Designer",
-  },
-  {
     img: "/images/caricature_images/9.jpg",
     name: "Zerda Jursinova",
     label: "Front-End Developer",
@@ -64,7 +59,7 @@ export const MembersInfo = [
   },
   {
     img: "/images/caricature_images/11.jpg",
-    name: "Seydanov Hamid",
+    name: "Hamid Seydanov",
     label: "Designer",
   },
   {
@@ -74,7 +69,7 @@ export const MembersInfo = [
   },
   {
     img: "/images/caricature_images/13.jpg",
-    name: "Yo'lchiboyev Botir",
+    name: "Botir Yo'lchiboyev",
     label: "Designer",
   },
   {

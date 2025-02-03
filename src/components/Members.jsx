@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { MembersInfo } from "../data/data";
 
@@ -19,18 +19,13 @@ const Members = forwardRef((props, ref) => {
           {MembersInfo.map((member, index) => (
             <div
               key={index}
-              className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0`}
+              className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-lg`}
             >
-              <img
-                className="w-full h-[250px] object-cover rounded-t-lg"
-                src={member.img}
-              />
-              <h4 className="text-center text-mainColor font-bold mt-2">
-                {member.label}
-              </h4>
-              <h1 className="text-center text-mainColor font-bold text-opacity-60 mb-2">
-                {member.name}
-              </h1>
+              <img className="w-full h-[320px] object-cover rounded-lg" src={member.img} />
+              <div className="absolute bottom-[5px] left-[5px] bg-white bg-opacity-80 w-[250px] rounded-md p-2">
+                <h1 className="text-start text-mainColor font-bold"> {member.name} </h1>
+                <h4 className="text-start text-mainColor font-bold text-opacity-70 text-[14px]"> {member.label} </h4>
+              </div>
             </div>
           ))}
         </motion.div>
@@ -42,20 +37,15 @@ const Members = forwardRef((props, ref) => {
         >
           {MembersInfo.map((member, index) => (
             <div
-              key={index}
-              className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0`}
-            >
-              <img
-                className="w-full h-[250px] object-cover rounded-t-lg"
-                src={member.img}
-              />
-              <h4 className="text-center text-mainColor font-bold mt-2">
-                {member.label}
-              </h4>
-              <h1 className="text-center text-mainColor font-bold text-opacity-60 mb-2">
-                {member.name}
-              </h1>
+            key={index}
+            className={`m-2 border border-mainColor border-opacity-30 w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-lg`}
+          >
+            <img className="w-full h-[320px] object-cover rounded-lg" src={member.img} />
+            <div className="absolute bottom-[5px] left-[5px] bg-white bg-opacity-80 w-[250px] rounded-md p-2">
+              <h1 className="text-start text-mainColor font-bold"> {member.name} </h1>
+              <h4 className="text-start text-mainColor font-bold text-opacity-70 text-[14px]"> {member.label} </h4>
             </div>
+          </div>
           ))}
         </motion.div>
       </div>
