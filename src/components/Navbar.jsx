@@ -101,7 +101,7 @@ function Navbar({ setNavRef }) {
               <a
                 href={menu.href}
                 onClick={() => setActiveId(menu.id)}
-                className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0
+                className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0 shadow-none
                 ${
                   scrollY > 50
                     ? "text-mainColor bg-mainColor bg-opacity-20"
@@ -123,7 +123,7 @@ function Navbar({ setNavRef }) {
                 type="button"
                 className={`${
                   scrollY > 50 ? "text-mainColor" : "text-white"
-                } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 transition-all duration-300 btn bg-transparent border-0 btn-sm hover:bg-mainColor hover:text-white`}
+                } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
               >
                 En
                 {!languageBtn && <i className="bi bi-chevron-down"></i>}
