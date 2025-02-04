@@ -76,7 +76,7 @@ const Contact = forwardRef((props, ref) => {
             className="grid grid-cols-4 border rounded-xl border-mainColor border-opacity-40 mb-4 py-4 px-2"
           >
             <div className="flex justify-center items-center text-mainColor">
-              <i className="bi bi-geo-alt text-[30px]"></i>
+              <i className="bi bi-geo-alt-fill text-[30px]"></i>
             </div>
             <div className="col-span-3">
               <h1 className="font-bold text-mainColor">Address</h1>
