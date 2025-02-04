@@ -1,5 +1,8 @@
 import React, { forwardRef, useRef, useEffect, useState } from "react";
 import { ContactInfo } from "../data/data";
+import { http } from "../services/telegramApi";
+import { chatId } from "../services/telegramApi";
+import toast, { Toaster } from "react-hot-toast";
 
 const Contact = forwardRef((props, ref) => {
   const formRef = useRef(null);
@@ -13,6 +16,35 @@ const Contact = forwardRef((props, ref) => {
       setIframeHeight(formHeight - addressHeight - 16); // 16px for margin-bottom
     }
   }, []);
+
+  const [loading, setLoading] = useState(false);
+  const sendContact = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    try {
+      const message = `Product: ${product.title}\nPrice: ${product.price} сум\nName: ${nameValue} \nPhone: +${phoneValue} \n\nID: ${product.id}`;
+
+      const response = await http.post(
+        "/sendMessage",
+        {
+          chat_id: chatId,
+          caption: message,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
+         setLoading(false);
+        toast.success('Заявка успешно отправлена.')
+    } catch (error) {
+      console.log(error);
+      alert(error);
+      setLoading(false);
+    }
+  };
 
   return (
     <section ref={ref} className="container p-4 pt-0 pb-[25px]">
@@ -44,7 +76,7 @@ const Contact = forwardRef((props, ref) => {
         </div>
 
         <div className="h-full">
-          <form className="grid grid-cols-1 text-mainColor h-full">
+          <form onSubmit={sendContact} className="grid grid-cols-1 text-mainColor h-full">
             <label className="grid grid-cols-1 mb-2">
               <span className="font-normal text-[14px]">First Name:</span>
               <input
