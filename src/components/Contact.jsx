@@ -9,7 +9,7 @@ const Contact = forwardRef((props, ref) => {
   const addressRef = useRef(null);
   const [iframeHeight, setIframeHeight] = useState(0);
   const [loading, setLoading] = useState(false);
-  
+
   // Form states
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -31,11 +31,10 @@ const Contact = forwardRef((props, ref) => {
       return;
     }
 
-    setLoading(true);
-    try {
-      const messageText = `New Contact Form Submission\n\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`;
+    const messageText = `WeaYaa.Uz Contact Form\n\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`;
 
-      const response = await http.post(
+    toast.promise(
+      http.post(
         "/sendMessage",
         {
           chat_id: chatId,
@@ -46,22 +45,19 @@ const Contact = forwardRef((props, ref) => {
             "Content-Type": "application/json",
           },
         }
-      );
-
-      setLoading(false);
-      toast.success("Message sent successfully!");
-      
-      // Clear form
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setMessage("");
-      
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to send message. Please try again.");
-      setLoading(false);
-    }
+      ),
+      {
+        loading: "Sending message...",
+        success: () => {
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setMessage("");
+          return "Message sent successfully!";
+        },
+        error: "Failed to send message",
+      }
+    );
   };
 
   return (
@@ -75,7 +71,10 @@ const Contact = forwardRef((props, ref) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 h-full">
         <div ref={formRef} className="h-full">
-          <div ref={addressRef} className="grid grid-cols-4 border rounded-xl border-mainColor border-opacity-40 mb-4 py-4 px-2">
+          <div
+            ref={addressRef}
+            className="grid grid-cols-4 border rounded-xl border-mainColor border-opacity-40 mb-4 py-4 px-2"
+          >
             <div className="flex justify-center items-center text-mainColor">
               <i className="bi bi-geo-alt text-[30px]"></i>
             </div>
@@ -85,7 +84,12 @@ const Contact = forwardRef((props, ref) => {
             </div>
           </div>
 
-          <div className="h-[200px] lg:h-auto" style={{ height: window.innerWidth >= 1024 ? `${iframeHeight}px` : '200px' }}>
+          <div
+            className="h-[200px] lg:h-auto"
+            style={{
+              height: window.innerWidth >= 1024 ? `${iframeHeight}px` : "200px",
+            }}
+          >
             <iframe
               src={ContactInfo[0].location}
               className="w-full h-full border rounded-xl border-mainColor border-opacity-40"
@@ -95,7 +99,10 @@ const Contact = forwardRef((props, ref) => {
         </div>
 
         <div className="h-full">
-          <form onSubmit={sendContact} className="grid grid-cols-1 text-mainColor h-full">
+          <form
+            onSubmit={sendContact}
+            className="grid grid-cols-1 text-mainColor h-full"
+          >
             <label className="grid grid-cols-1 mb-2">
               <span className="font-normal text-[14px]">First Name:</span>
               <input
@@ -140,12 +147,11 @@ const Contact = forwardRef((props, ref) => {
                 required
               ></textarea>
             </label>
-            <button 
-              type="submit" 
-              disabled={loading}
-              className="border rounded-lg border-mainColor border-opacity-40 px-2 py-1 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            <button
+              type="submit"
+              className="border rounded-lg border-mainColor border-opacity-40 px-2 py-1 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300"
             >
-              {loading ? "Sending..." : "Submit"}
+              Submit
             </button>
           </form>
         </div>
