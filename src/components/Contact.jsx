@@ -31,7 +31,13 @@ const Contact = forwardRef((props, ref) => {
       return;
     }
 
-    const messageText = `WeaYaa.Uz Contact Form\n\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`;
+    const currentDate = new Date().toLocaleDateString('uz-UZ', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+
+    const messageText = `WeaYaa.Uz Contact Form\nDate: ${currentDate}\n\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`;
 
     toast.promise(
       http.post(
