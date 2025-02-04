@@ -44,7 +44,7 @@ function RootLayout() {
           id="news"
           // className="h-screen"
           style={{ paddingTop: `${navRef}px`,
-          // paddingBottom: `${navRef}px` 
+          // paddingBottom: `${navRef}px`
         }}
         >
           <News />
@@ -52,8 +52,10 @@ function RootLayout() {
 
         <section
           id="contact"
-          className="h-screen border-2 border-sky-600"
-          style={{ paddingTop: `${navRef}px`, paddingBottom: `${navRef}px` }}
+          // className="h-screen border-2 border-sky-600"
+          style={{ paddingTop: `${navRef}px`,
+          // paddingBottom: `${navRef}px`
+         }}
         >
           <Contact />
         </section>
