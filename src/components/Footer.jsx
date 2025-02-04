@@ -3,7 +3,7 @@ import { FooterInfo } from "../data/data";
 function Footer() {
   return (
     <section className="bg-mainColor">
-      <div className="container px-4 py-8 text-white text-[8px] lg:text-[14px]">
+      <div className="container py-8 text-white text-[8px] lg:text-[14px]">
         <img
           src={FooterInfo[0].logoWhite}
           alt="logo"
