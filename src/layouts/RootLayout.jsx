@@ -21,15 +21,21 @@ function RootLayout() {
 
         <section
           id="members"
-          className="h-screen"
-          style={{ paddingTop: `${navRef}px`, paddingBottom: `${navRef}px` }}
+          // className="h-screen"
+          style={{ paddingTop: `${navRef}px`,
+          // paddingBottom: `${navRef}px`
+        }}
+        className="border-2 border-sky-600"
         >
           <Members />
         </section>
 
         <section
           id="art"
-          style={{ paddingTop: `${navRef}px`, paddingBottom: `${navRef}px` }}
+          style={{ paddingTop: `${navRef}px`,
+          // paddingBottom: `${navRef}px`
+        }}
+        className="border-2 border-sky-600"
         >
           <Art />
         </section>

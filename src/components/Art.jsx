@@ -43,9 +43,9 @@ const Art = forwardRef((props, ref) => {
 
   const [activeImg, setActiveImg] = useState("");
   return (
-    <section ref={ref} className="container p-4 pt-0 pb-[25px] select-none">
+    <section ref={ref} className="container h-full">
       <div>
-        <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">
+        <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] border-2 border-red-700 text-mainColor">
           Art
         </p>
       </div>

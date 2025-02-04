@@ -5,20 +5,21 @@ import { MembersInfo } from "../data/data";
 const Members = forwardRef((props, ref) => {
   return (
     <section ref={ref} className="h-full">
-      <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] text-mainColor">
+      <p className="container font-semibold text-2xl lg:text-4xl text-center my-[25px] border-2 border-red-700 text-mainColor">
         Members
       </p>
-      <p className="font-semibold text-md lg:text-xl text-center my-[25px] text-mainColor">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, quidem impedit optio eius sed sunt aut quisquam corporis, doloribus dolores. aut sed doloremque quos asperiores velit eos commodi quidem. Dolorem, quaerat amet porro at nulla, ut saepe, alias corrupti officia omnis reiciendis nostrum.
+      <p className="container font-semibold text-md lg:text-xl text-center my-[25px] xl:px-40 text-mainColor border-2 border-red-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, quidem impedit optio eius sed sunt aut quisquam corporis.
       </p>
 
-      <div className="flex overflow-x-hidden h-full items-center">
+      <div className="flex overflow-x-hidden items-center border-2 border-red-700 relative bg-white">
+      <div class="bg-gradient-to-r from-white to-transparent w-[70px] h-full  z-[999] absolute left-0"></div>
+      <div class="bg-gradient-to-l from-white to-transparent w-[70px] h-full  z-[999] absolute right-0"></div>
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="flex flex-shrink-0"
-        >
+          className="flex flex-shrink-0">
           {MembersInfo.map((member, index) => (
             <div
               key={index}
