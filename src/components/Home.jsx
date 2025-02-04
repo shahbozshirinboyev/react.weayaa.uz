@@ -30,13 +30,13 @@ const Home = forwardRef((props, ref) => {
       <div className="bg-sky-950 bg-opacity-30 absolute top-0 left-0 w-full h-screen z-[10]"></div>
 
       <div className="container mx-auto text-center text-white z-[20]">
-        <h1 className=" text-4xl lg:text-6xl font-bold mb-4">
+        <h1 className="text-4xl lg:text-6xl font-bold mb-1">
           {HomeInfo[0].title}
         </h1>
-        <p className="text-xl xl:text-3xl font-bold text-green-300">
+        <p className="text-lg xl:text-2xl font-bold text-green-300">
           {HomeInfo[0].info}
         </p>
-        <p className="text-md lg:text-xl lg:mx-32 my-4 font-semibold">
+        <p className="text-md lg:text-xl lg:mx-32 my-3 font-semibold">
           {HomeInfo[0].description}
         </p>
       </div>

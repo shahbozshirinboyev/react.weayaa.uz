@@ -5,8 +5,11 @@ import { MembersInfo } from "../data/data";
 const Members = forwardRef((props, ref) => {
   return (
     <section ref={ref} className="h-full">
-      <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">
+      <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] text-mainColor">
         Members
+      </p>
+      <p className="font-semibold text-md lg:text-xl text-center my-[25px] text-mainColor">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, quidem impedit optio eius sed sunt aut quisquam corporis, doloribus dolores. aut sed doloremque quos asperiores velit eos commodi quidem. Dolorem, quaerat amet porro at nulla, ut saepe, alias corrupti officia omnis reiciendis nostrum.
       </p>
 
       <div className="flex overflow-x-hidden h-full items-center">

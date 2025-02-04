@@ -56,7 +56,7 @@ const Art = forwardRef((props, ref) => {
           spaceBetween={10}
           freeMode={true}
           modules={[FreeMode]}
-          className="bg-mainColor bg-opacity-10 px-3 py-2 rounded-lg justify-center"
+          className="bg-mainColor bg-opacity-10 px-3 py-2 rounded-lg justify-center max-w-[850px]"
         >
           {galleryInfo.map((gallery) => (
             <SwiperSlide key={gallery.id}>

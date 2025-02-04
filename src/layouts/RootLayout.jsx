@@ -44,7 +44,7 @@ function RootLayout() {
 
         <section
           id="contact"
-          className="h-screen"
+          className="h-screen border-2 border-sky-600"
           style={{ paddingTop: `${navRef}px`, paddingBottom: `${navRef}px` }}
         >
           <Contact />

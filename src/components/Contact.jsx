@@ -3,7 +3,7 @@ import { ContactInfo } from "../data/data";
 
 const Contact = forwardRef((props, ref) => {
   return (
-    <section ref={ref} className="container p-4 pt-0 pb-[25px]">
+    <section ref={ref} className="container p-4 pt-0 pb-[25px] border-2 border-sky-600">
       <div>
         <p className="font-semibold text-[24px] text-center my-[25px] text-mainColor">
           Contact Us
@@ -21,9 +21,9 @@ const Contact = forwardRef((props, ref) => {
               <h4 className="text-mainColor">{ContactInfo[0].address}</h4>
             </div>
           </div>
-          <div className="h-[260px]">
+          <div className="h-[240px]">
             <iframe
-              // src={ContactInfo[0].location}
+              src={ContactInfo[0].location}
               className="w-full h-full border rounded-xl border-mainColor border-opacity-40"
               allowFullScreen={true}
             ></iframe>
