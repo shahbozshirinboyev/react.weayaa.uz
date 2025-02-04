@@ -44,11 +44,8 @@ const Art = forwardRef((props, ref) => {
   const [activeImg, setActiveImg] = useState("");
   return (
     <section ref={ref} className="container h-full">
-      <div>
-        <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] border-2 border-red-700 text-mainColor">
-          Art
-        </p>
-      </div>
+
+      <p className="font-semibold text-2xl lg:text-4xl text-center mt-[25px] text-mainColor">Art</p>
 
       <>
         <Swiper
@@ -56,7 +53,7 @@ const Art = forwardRef((props, ref) => {
           spaceBetween={10}
           freeMode={true}
           modules={[FreeMode]}
-          className="bg-mainColor bg-opacity-10 px-3 py-2 rounded-lg justify-center max-w-[850px]"
+          className="bg-mainColor bg-opacity-10 px-3 py-2 mt-[10px] mb-[25px] rounded-lg justify-center max-w-[850px]"
         >
           {galleryInfo.map((gallery) => (
             <SwiperSlide key={gallery.id}>
@@ -78,7 +75,7 @@ const Art = forwardRef((props, ref) => {
         </Swiper>
       </>
       <>
-        <div className="columns-2 lg:columns-3 xl:columns-4 py-8">
+        <div className="columns-2 lg:columns-3 xl:columns-4">
           {images.map((item) => (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}

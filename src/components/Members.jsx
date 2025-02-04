@@ -11,8 +11,8 @@ const Members = forwardRef((props, ref) => {
 
       <div className="flex overflow-x-hidden items-center relative">
 
-        <div class="bg-gradient-to-r from-white to-transparent w-[70px] h-full  z-[999] absolute left-0"></div>
-        <div class="bg-gradient-to-l from-white to-transparent w-[70px] h-full  z-[999] absolute right-0"></div>
+        <div class="bg-gradient-to-r from-white to-transparent w-[70px] h-full  z-[80] absolute left-0"></div>
+        <div class="bg-gradient-to-l from-white to-transparent w-[70px] h-full  z-[80] absolute right-0"></div>
 
         <motion.div
           initial={{ x: 0 }}
