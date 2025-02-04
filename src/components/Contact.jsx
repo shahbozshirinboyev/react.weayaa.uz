@@ -8,46 +8,65 @@ const Contact = forwardRef((props, ref) => {
   const formRef = useRef(null);
   const addressRef = useRef(null);
   const [iframeHeight, setIframeHeight] = useState(0);
+  const [loading, setLoading] = useState(false);
+  
+  // Form states
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (formRef.current && addressRef.current) {
       const formHeight = formRef.current.offsetHeight;
       const addressHeight = addressRef.current.offsetHeight;
-      setIframeHeight(formHeight - addressHeight - 16); // 16px for margin-bottom
+      setIframeHeight(formHeight - addressHeight - 16);
     }
   }, []);
 
-  const [loading, setLoading] = useState(false);
   const sendContact = async (e) => {
-    setLoading(true);
     e.preventDefault();
+    if (!firstName || !lastName || !email || !message) {
+      toast.error("Please fill all fields!");
+      return;
+    }
+
+    setLoading(true);
     try {
-      const message = `Product: ${product.title}\nPrice: ${product.price} сум\nName: ${nameValue} \nPhone: +${phoneValue} \n\nID: ${product.id}`;
+      const messageText = `New Contact Form Submission\n\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`;
 
       const response = await http.post(
         "/sendMessage",
         {
           chat_id: chatId,
-          caption: message,
+          text: messageText,
         },
         {
           headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
           },
         }
       );
-      console.log(response);
-         setLoading(false);
-        toast.success('Заявка успешно отправлена.')
+
+      setLoading(false);
+      toast.success("Message sent successfully!");
+      
+      // Clear form
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+      
     } catch (error) {
-      console.log(error);
-      alert(error);
+      console.error(error);
+      toast.error("Failed to send message. Please try again.");
       setLoading(false);
     }
   };
 
   return (
     <section ref={ref} className="container p-4 pt-0 pb-[25px]">
+      <Toaster position="top-right" />
       <div>
         <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] text-mainColor">
           Contact Us
@@ -81,38 +100,52 @@ const Contact = forwardRef((props, ref) => {
               <span className="font-normal text-[14px]">First Name:</span>
               <input
                 type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type first your name ..."
+                required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal  text-[14px]">Last Name:</span>
+              <span className="font-normal text-[14px]">Last Name:</span>
               <input
                 type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type last your name ..."
+                required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal  text-[14px]">Your Email:</span>
+              <span className="font-normal text-[14px]">Your Email:</span>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type your email address ..."
+                required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal  text-[14px]">Your Message:</span>
+              <span className="font-normal text-[14px]">Your Message:</span>
               <textarea
-                name=""
-                id=""
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 rows={4}
                 className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type your message ..."
+                required
               ></textarea>
             </label>
-            <button className="border rounded-lg border-mainColor border-opacity-40 px-2 py-1 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300">
-              Submit
+            <button 
+              type="submit" 
+              disabled={loading}
+              className="border rounded-lg border-mainColor border-opacity-40 px-2 py-1 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Sending..." : "Submit"}
             </button>
           </form>
         </div>
