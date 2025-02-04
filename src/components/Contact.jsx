@@ -67,7 +67,7 @@ const Contact = forwardRef((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="container p-4 pt-0 pb-[25px]">
+    <section ref={ref} className="container mb-[25px]">
       <Toaster position="top-right" />
       <div>
         <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] text-mainColor">
