@@ -25,7 +25,7 @@ function RootLayout() {
           style={{ paddingTop: `${navRef}px`,
           // paddingBottom: `${navRef}px`
         }}
-        className="border-2 border-sky-600"
+        // className="border-2 border-sky-600"
         >
           <Members />
         </section>
