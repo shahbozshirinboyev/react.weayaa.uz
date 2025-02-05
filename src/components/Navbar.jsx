@@ -131,7 +131,7 @@ function Navbar({ setNavRef }) {
                   <a
                     onClick={() => i18n.changeLanguage("en")}
                     href="#"
-                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'en' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0"
@@ -145,7 +145,7 @@ function Navbar({ setNavRef }) {
                   <a
                     onClick={() => i18n.changeLanguage("uz")}
                     href="#"
-                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'uz' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0"
@@ -159,7 +159,7 @@ function Navbar({ setNavRef }) {
                   <a
                     onClick={() => i18n.changeLanguage("ko")}
                     href="#"
-                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ko' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0"
@@ -173,7 +173,7 @@ function Navbar({ setNavRef }) {
                   <a
                     onClick={() => i18n.changeLanguage("ru")}
                     href="#"
-                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ru' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0"
