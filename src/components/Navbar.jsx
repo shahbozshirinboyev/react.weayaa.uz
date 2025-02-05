@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import logoBlack from "/images/logo/logo-black.png";
 import logoWhite from "/images/logo/logo-white.png";
 
+//i18next
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 function Navbar({ setNavRef }) {
+  const { t } = useTranslation();
   const menus = [
     {
       id: 1,
@@ -141,41 +146,62 @@ function Navbar({ setNavRef }) {
               >
                 <div className="py-1" role="none">
                   <a
+                    onClick={() => i18n.changeLanguage("en")}
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0"
                   >
-                    English
+                    <img
+                    src="/images/language_icons/en.png"
+                    className="w-5"
+                  />
+                  <span>English</span>
                   </a>
                   <a
+                    onClick={() => i18n.changeLanguage("uz")}
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
                     role="menuitem"
                     tabIndex="-1"
-                    id="menu-item-1"
+                    id="menu-item-0"
                   >
-                    O'zbek
+                    <img
+                    src="/images/language_icons/uz.png"
+                    className="w-5"
+                  />
+                  <span>O'zbekcha</span>
                   </a>
                   <a
+                    onClick={() => i18n.changeLanguage("ko")}
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
                     role="menuitem"
                     tabIndex="-1"
-                    id="menu-item-2"
+                    id="menu-item-0"
                   >
-                    Korean
+                    <img
+                    src="/images/language_icons/ko.png"
+                    className="w-5"
+                  />
+                  <span>Korean</span>
                   </a>
                   <a
+                    onClick={() => i18n.changeLanguage("ru")}
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                    className="flex gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
                     role="menuitem"
                     tabIndex="-1"
-                    id="menu-item-2"
+                    id="menu-item-0"
                   >
-                    Russian
+                    <img
+                    src="/images/language_icons/ru.png"
+                    className="w-5"
+                  />
+                  <span>Russian</span>
                   </a>
+
                 </div>
               </div>
             )}
