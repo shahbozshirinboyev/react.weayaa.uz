@@ -64,7 +64,7 @@ const Art = forwardRef((props, ref) => {
                 onClick={() => { filterTab(gallery.counts); setActiveTab(gallery.id); }}
                 className={`border-transparent font-medium ${
                   activeTab === gallery.id
-                    ? "text-white bg-mainColor"
+                    ? "text-white bg-mainColor hover:text-mainColor"
                     : "text-mainColor bg-mainColor bg-opacity-20"
                 } btn btn-sm text hover:bg-mainColor hover:bg-opacity-40 border-0`}
               >
