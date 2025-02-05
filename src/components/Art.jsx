@@ -30,7 +30,7 @@ const Art = forwardRef((props, ref) => {
   const { t } = useTranslation();
   const arts = t('arts', { returnObjects: true });
 
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(1);
   const [images, setImages] = useState(arts[0].counts);
   const filterTab = (tab) => {
     setImages(tab);
