@@ -1,7 +1,7 @@
 import React from "react";
 
 function NewsModal({ news }) {
-  console.log(news);
+  // console.log(news);
   return (
     <>
       <button
@@ -34,7 +34,7 @@ function NewsModal({ news }) {
             <img src={news.img} alt="" className="rounded-lg my-4" />
             <span className="px-2 py-1 rounded-xl text-mainColor bg-mainColor bg-opacity-20 border-0 text-sm font-semibold">{news.date}</span>
             <p className="text-mainColor py-2 pb-4">{news.info}</p>
-            {news.liks && <button className="btn btn-sm mb-4 mt-2 text-mainColor bg-mainColor bg-opacity-20"><i class="bi bi-link-45deg"></i><span>Link</span></button>}
+            {news.liks && <button className="btn btn-sm mb-4 mt-2 text-mainColor bg-mainColor bg-opacity-20"><i className="bi bi-link-45deg"></i><span>Link</span></button>}
           </div>
         </div>
         <form method="dialog" className="modal-backdrop">
