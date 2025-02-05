@@ -14,7 +14,7 @@
   display: block;
   --height-of-loader: 4px;
   --loader-color: #2E6734;
-  width: 130px;
+  width: 150px;
   height: var(--height-of-loader);
   border-radius: 30px;
   background-color: #2e67344d;

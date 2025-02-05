@@ -3,7 +3,8 @@ import React from 'react'
 
 function Loader() {
   return (
-    <div className='h-screen w-full flex justify-center items-center'>
+    <div className='h-screen w-full flex gap-3 flex-col justify-center items-center'>
+      <img src="/images/logo/logo-black.png" alt="" className='w-[180px] mx-auto' />
       <div className="loader"></div>
     </div>
   )
