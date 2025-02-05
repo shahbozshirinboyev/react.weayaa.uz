@@ -2,11 +2,15 @@ import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { MembersInfo } from "../data/data";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 const Members = forwardRef((props, ref) => {
+  const { t } = useTranslation();
   return (
     <section ref={ref} className="h-full">
 
-      <p className="container font-semibold text-2xl lg:text-4xl text-center mt-[25px] text-mainColor">Members</p>
+      <p className="container font-semibold text-2xl lg:text-4xl text-center mt-[25px] text-mainColor">{t(`menus.1.name`)}</p>
       <p className="container font-semibold text-md lg:text-xl text-center mt-[10px] mb-[25px] xl:px-40 text-mainColor">Meet our leaders – they continuously contribute to the growth of our company, driving innovation and making strategic decisions to move us forward.</p>
 
       <div className="flex overflow-x-hidden items-center relative">

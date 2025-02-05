@@ -1,6 +1,10 @@
 import { FooterInfo } from "../data/data";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 function Footer() {
+  const { t } = useTranslation();
   return (
     <section className="bg-mainColor">
       <div className="container py-8 text-white text-[8px] lg:text-[14px]">

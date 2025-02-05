@@ -3,6 +3,9 @@ import { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 // motion framer
 import { motion } from "framer-motion";
 
@@ -26,6 +29,8 @@ import "yet-another-react-lightbox/styles.css";
 import { FreeMode } from "swiper/modules";
 
 const Art = forwardRef((props, ref) => {
+  const { t } = useTranslation();
+  
   const [activeTab, setActiveTab] = useState(0);
   const [images, setImages] = useState(galleryInfo[0].counts);
   const filterTab = (tab) => {

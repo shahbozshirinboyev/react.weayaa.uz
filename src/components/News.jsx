@@ -6,6 +6,9 @@ import { NewsInfo } from "../data/data";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -17,6 +20,7 @@ import { div } from "framer-motion/client";
 import NewsModal from "./NewsModal";
 
 const News = forwardRef((props, ref) => {
+  const { t } = useTranslation();
   return (
     <section ref={ref} className="container">
       <div>

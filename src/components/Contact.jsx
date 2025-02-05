@@ -4,7 +4,12 @@ import { http } from "../services/telegramApi";
 import { chatId } from "../services/telegramApi";
 import toast, { Toaster } from "react-hot-toast";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 const Contact = forwardRef((props, ref) => {
+  const { t } = useTranslation();
+
   const formRef = useRef(null);
   const addressRef = useRef(null);
   const [iframeHeight, setIframeHeight] = useState(0);
