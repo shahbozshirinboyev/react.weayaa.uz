@@ -85,9 +85,9 @@ const Contact = forwardRef((props, ref) => {
         <div ref={formRef} className="h-full">
           <div
             ref={addressRef}
-            className="grid grid-cols-4 border rounded-xl border-mainColor border-opacity-40 mb-4 py-4 px-2"
+            className="flex justify-start bg-mainColor bg-opacity-5 items-center border rounded-xl border-mainColor border-opacity-20 mb-4 py-4 px-2"
           >
-            <div className="flex justify-center items-center text-mainColor">
+            <div className="flex justify-center items-center border-0 text-mainColor w-24 h-20">
               <i className="bi bi-geo-alt-fill text-[30px]"></i>
             </div>
             <div className="col-span-3">
@@ -104,7 +104,7 @@ const Contact = forwardRef((props, ref) => {
           >
             <iframe
               src={t(`contacts.0.location`)}
-              className="w-full h-full border rounded-xl border-mainColor border-opacity-40"
+              className="w-full h-full border rounded-xl border-mainColor border-opacity-20"
               allowFullScreen={true}
             ></iframe>
           </div>
@@ -116,52 +116,52 @@ const Contact = forwardRef((props, ref) => {
             className="grid grid-cols-1 text-mainColor h-full"
           >
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal text-[14px]">First Name:</span>
+              <span className="font-medium text-[16px]">First Name:</span>
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
+                className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type first your name ..."
                 required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal text-[14px]">Last Name:</span>
+              <span className="font-medium text-[16px]">Last Name:</span>
               <input
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
+                className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type last your name ..."
                 required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal text-[14px]">Your Email:</span>
+              <span className="font-medium text-[16px]">Your Email:</span>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
+                className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type your email address ..."
                 required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-normal text-[14px]">Your Message:</span>
+              <span className="font-medium text-[16px]">Your Message:</span>
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
-                className="border rounded-lg border-mainColor border-opacity-40 py-1 px-2 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
+                className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
                 placeholder="Type your message ..."
                 required
               ></textarea>
             </label>
             <button
               type="submit"
-              className="border rounded-lg border-mainColor border-opacity-40 px-2 py-1 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300"
+              className="border-0 rounded-lg border-mainColor bg-mainColor bg-opacity-20 border-opacity-40 px-3 py-2 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300"
             >
               {t('submit')}
             </button>

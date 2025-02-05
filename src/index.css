@@ -17,7 +17,7 @@
   width: 130px;
   height: var(--height-of-loader);
   border-radius: 30px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: #2e67344d;
   position: relative;
 }
 

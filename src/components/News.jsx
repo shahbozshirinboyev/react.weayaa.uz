@@ -64,7 +64,7 @@ const News = forwardRef((props, ref) => {
       >
         {news.map((news) => (
           <SwiperSlide
-            className="border border-mainColor rounded-lg border-opacity-40 cursor-pointer"
+            className="border border-mainColor rounded-lg border-opacity-20 cursor-pointer bg-mainColor bg-opacity-5"
             key={news.id}
           >
             <div className="grid grid-cols-1">
