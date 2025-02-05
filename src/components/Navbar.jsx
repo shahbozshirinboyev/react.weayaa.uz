@@ -17,6 +17,7 @@ function Navbar({ setNavRef }) {
   const [languageBtn, setLanguageBrn] = useState(false);
   const [activeId, setActiveId] = useState(1);
   const navRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     setNavRef(navRef?.current?.offsetHeight);
@@ -44,6 +45,19 @@ function Navbar({ setNavRef }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollY]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setLanguageBrn(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
     <section
@@ -90,7 +104,7 @@ function Navbar({ setNavRef }) {
         </div>
 
         <li className="cursor-pointer text-end hidden lg:block">
-          <div className="relative inline-block text-left font-bold">
+          <div className="relative inline-block text-left font-bold" ref={dropdownRef}>
             <div className="relative">
               <button
                 onClick={() => setLanguageBrn(!languageBtn)}
