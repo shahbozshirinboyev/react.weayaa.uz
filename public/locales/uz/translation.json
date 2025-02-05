@@ -30,5 +30,15 @@
       "name": "Bog‘lanish",
       "icon": "bi bi-info-circle"
     }
+  ],
+
+  "home": [
+    {
+      "logoWhite": "/images/logo/logo-white.png",
+      "logoBlack": "/images/logo/logo-black.png",
+      "title": "WeaYaa ga Xush Kelibsiz!",
+      "info": "Global Contents Development kompaniyasi",
+      "description": "WeaYaa - O'zbekistondagi eng yaxshi kontent ishlab chiqaruvchi kompaniya. Biz Koreya va O'zbekistonda joylashganmiz va biz barcha vizual kontentni (o'yinlar, animatsiyalar, filmlar, interyerlar, arxitektura, mahsulotlar, reklama aktsiyalari) yuqori malakali xodimlar bilan ishlab chiqmoqdamiz. Biz doimiy qiyinchilik va chiroyli tuyg'u asosida bozorni boshqaradigan global kompaniya bo'lishni maqsad qilganmiz."
+    }
   ]
 }

@@ -111,7 +111,7 @@ function Navbar({ setNavRef }) {
                 type="button"
                 className={`${
                   scrollY > 50 ? "text-mainColor" : "text-white"
-                } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
+                } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 active:scale-95 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
               >
                 <i className="bi bi-translate"></i>
                 {!languageBtn && <i className="bi bi-chevron-down"></i>}

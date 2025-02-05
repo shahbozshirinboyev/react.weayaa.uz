@@ -1,7 +1,11 @@
-import React, { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { HomeInfo } from "../data/data";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
 const Home = forwardRef((props, ref) => {
+  const { t } = useTranslation();
   // background change img start
   const [bgImage, setBgImage] = useState("/images/background/img1.jpg");
 
@@ -30,14 +34,14 @@ const Home = forwardRef((props, ref) => {
       <div className="bg-sky-950 bg-opacity-30 absolute top-0 left-0 w-full h-screen z-[10]"></div>
 
       <div className="container mx-auto text-center text-white z-[20]">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-1">
-          {HomeInfo[0].title}
+        <h1 className="text-3xl lg:text-4xl font-bold mb-1">
+          {t(`home.0.title`)}
         </h1>
         <p className="text-lg xl:text-2xl font-bold text-green-300">
-          {HomeInfo[0].info}
+          {t('home.0.info')}
         </p>
-        <p className="text-md lg:text-xl lg:mx-32 my-3 font-semibold">
-          {HomeInfo[0].description}
+        <p className="text-md lg:text-xl lg:mx-16 my-3 font-semibold">
+          {t('home.0.description')}
         </p>
       </div>
 

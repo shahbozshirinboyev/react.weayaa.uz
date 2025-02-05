@@ -30,5 +30,15 @@
       "name": "연락처",
       "icon": "bi bi-info-circle"
     }
+  ],
+
+  "home": [
+    {
+      "logoWhite": "/images/logo/logo-white.png",
+      "logoBlack": "/images/logo/logo-black.png",
+      "title": "WeaYaa 로 오신 것을 환영합니다",
+      "info": "글로벌 콘텐츠 개발 기업",
+      "description": "WeaYaa 는 우즈베키스탄 최고의 컨텐츠 개발 회사 입니다. 우리는 한국과 우즈베키스탄에 위치하고 있으며, 시각적인 모든 콘텐츠(게임, 애니메이션, 영화, 인테리어, 건축, 제품, 프로모션 )를 최선을 다해 개발하고 있습니다. 끊임없는 도전과 아름다운 감각을 바탕으로 시장을 선도하는 글로벌 기업이 되고자 합니다."
+    }
   ]
 }
