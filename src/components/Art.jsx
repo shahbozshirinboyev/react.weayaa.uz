@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper/modules";
 
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
@@ -15,10 +16,7 @@ import { motion } from "framer-motion";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "swiper/css/free-mode";
-
-import "./art.css";
 
 // npm install yet-another-react-lightbox
 import Lightbox from "yet-another-react-lightbox";
@@ -26,7 +24,6 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
 // import required modules
-import { FreeMode } from "swiper/modules";
 
 const Art = forwardRef((props, ref) => {
   const { t } = useTranslation();
@@ -37,7 +34,7 @@ const Art = forwardRef((props, ref) => {
   const filterTab = (tab) => {
     setImages(tab);
     // console.log(tab);
-    console.log(images);
+    // console.log(images);
   };
   const [open, setOpen] = useState(false);
   const slides = images.map((item) => ({ src: item.img }));
@@ -59,20 +56,17 @@ const Art = forwardRef((props, ref) => {
           spaceBetween={10}
           freeMode={true}
           modules={[FreeMode]}
-          className="bg-mainColor bg-opacity-10 px-3 py-2 mt-[10px] mb-[25px] rounded-lg justify-center max-w-[850px]"
+          className="bg-mainColor bg-opacity-5 shadow-md px-4 py-3 mt-[10px] mb-[25px] rounded-lg justify-center select-none"
         >
           {arts.map((gallery) => (
-            <SwiperSlide key={gallery.id}>
+            <SwiperSlide key={gallery.id} className="w-auto">
               <button
-                onClick={() => {
-                  filterTab(gallery.counts);
-                  setActiveTab(gallery.id);
-                }}
-                className={`border-transparent font-semibold ${
+                onClick={() => { filterTab(gallery.counts); setActiveTab(gallery.id); }}
+                className={`border-transparent font-medium ${
                   activeTab === gallery.id
                     ? "text-white bg-mainColor"
-                    : "text-mainColor bg-mainColor bg-opacity-30"
-                } transition-all duration-300  px-2 py-1 rounded-lg text-center text`}
+                    : "text-mainColor bg-mainColor bg-opacity-20"
+                } btn btn-sm text hover:bg-mainColor hover:bg-opacity-40 border-0`}
               >
                 {gallery.name}
               </button>
