@@ -11,38 +11,7 @@ import i18n from "../i18n";
 
 function Navbar({ setNavRef }) {
   const { t } = useTranslation();
-  const menus = [
-    {
-      id: 1,
-      href: "#home",
-      name: "Home",
-      icon: "bi bi-house",
-    },
-    {
-      id: 2,
-      href: "#members",
-      name: "Members",
-      icon: "bi bi-people",
-    },
-    {
-      id: 3,
-      href: "#art",
-      name: "Art",
-      icon: "bi bi-brush",
-    },
-    {
-      id: 4,
-      href: "#news",
-      name: "News",
-      icon: "bi bi-newspaper",
-    },
-    {
-      id: 5,
-      href: "#contact",
-      name: "Contact",
-      icon: "bi bi-info-circle",
-    },
-  ];
+  const menus = t('menus', { returnObjects: true });
   const [open, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [languageBtn, setLanguageBrn] = useState(false);
@@ -106,7 +75,7 @@ function Navbar({ setNavRef }) {
               <a
                 href={menu.href}
                 onClick={() => setActiveId(menu.id)}
-                className={`cursor-pointer font-semibold transition-all duration-300 w-[80px] hover:text-white hover:bg-mainColor btn btn-sm border-0 shadow-none
+                className={`cursor-pointer font-semibold transition-all duration-300 w-[90px] hover:text-white hover:bg-mainColor btn btn-sm border-0 shadow-none whitespace-nowrap
                 ${
                   scrollY > 50
                     ? "text-mainColor bg-mainColor bg-opacity-20"
@@ -114,7 +83,7 @@ function Navbar({ setNavRef }) {
                 }
                 ${activeId === menu.id ? "!bg-mainColor !text-white" : ""}`}
               >
-                {menu.name}
+                {t(`menus.${menu.id - 1}.name`)}
               </a>
             </li>
           ))}
@@ -130,7 +99,7 @@ function Navbar({ setNavRef }) {
                   scrollY > 50 ? "text-mainColor" : "text-white"
                 } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
               >
-                En
+                <i className="bi bi-translate"></i>
                 {!languageBtn && <i className="bi bi-chevron-down"></i>}
                 {languageBtn && <i className="bi bi-chevron-up"></i>}
               </button>
@@ -268,7 +237,7 @@ function Navbar({ setNavRef }) {
                     }`}
                   >
                     <i className={menu.icon}></i>
-                    <span>{menu.name}</span>
+                    <span>{t(`menus.${menu.id - 1}.name`)}</span>
                   </a>
                 </li>
               ))}
