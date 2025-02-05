@@ -9,17 +9,41 @@
 
 /* Loader start */
 /* HTML: <div class="loader"></div> */
+/* From Uiverse.io by satyamchaudharydev */
 .loader {
-  width: 150px;
-  height: 20px;
-  background:
-    linear-gradient(90deg,rgba(255, 255, 255, 0.067) 33%,rgba(255, 255, 255, 0.333) 50%,rgba(255, 255, 255, 0.067) 66%)
-    #000;
-  background-size:300% 100%;
-  animation: l1 .8s infinite linear;
+  display: block;
+  --height-of-loader: 4px;
+  --loader-color: #0071e2;
+  width: 130px;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.2);
+  position: relative;
 }
-@keyframes l1 {
-  0% {background-position: right}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 1s ease-in-out infinite;
+  ;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
 }
 /* Loader end */
 

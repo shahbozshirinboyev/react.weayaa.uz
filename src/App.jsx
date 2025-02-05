@@ -1,13 +1,19 @@
-// react router dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-// layouts
 import RootLayout from "./layouts/RootLayout";
-
-// pages
 import ErrorPage from "./pages/ErrorPage";
+import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -21,7 +27,11 @@ function App() {
       // ],
     },
   ]);
-  return <RouterProvider router={routes} />;
+  return (
+    <div>
+      {loading ? <Loader /> : <RouterProvider router={routes} />}
+    </div>
+  );
 }
 
 export default App;
