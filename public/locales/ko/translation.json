@@ -341,7 +341,7 @@
     }
   ],
 
-"news": [
+  "news": [
     {
       "id": "news-1",
       "img": "/images/news/news_4.jpg",
@@ -380,14 +380,13 @@
     }
   ],
 
-
-
-
   "contacts": [
     {
       "title": "주소",
       "address": "Tashkent city, Upper Chirchik district, Qorasuv MFY, Y.Rajabiy street.",
       "location": "https://yandex.uz/map-widget/v1/-/CDh-rVzn"
     }
-  ]
+  ],
+  "readMore": "더 보기",
+  "submit": "제출"
 }

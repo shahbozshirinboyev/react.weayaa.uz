@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function NewsModal({ news }) {
+  const { t } = useTranslation();
   // console.log(news);
   return (
     <>
@@ -10,7 +12,7 @@ function NewsModal({ news }) {
         }}
         className="text-mainColor btn btn-sm mt-3 bg-mainColor bg-opacity-20 border-0 hover:bg-mainColor hover:text-white"
       >
-        Read more
+        {t('readMore')}
       </button>
 
       <dialog id={`news_${news.id}`} className="modal">

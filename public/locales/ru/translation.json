@@ -384,5 +384,7 @@
       "address": "Город Ташкент, район Верхний Чирчик, МФЙ Корасув, улица Ю.Раджаби.",
       "location": "https://yandex.uz/map-widget/v1/-/CDh-rVzn"
     }
-  ]
+  ],
+  "readMore": "Подробнее",
+  "submit": "Отправить"
 }

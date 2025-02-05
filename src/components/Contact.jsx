@@ -163,7 +163,7 @@ const Contact = forwardRef((props, ref) => {
               type="submit"
               className="border rounded-lg border-mainColor border-opacity-40 px-2 py-1 w-full font-semibold hover:text-white hover:bg-mainColor transition-all duration-300"
             >
-              Submit
+              {t('submit')}
             </button>
           </form>
         </div>

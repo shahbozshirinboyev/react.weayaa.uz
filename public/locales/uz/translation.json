@@ -380,8 +380,10 @@
   "contacts": [
     {
       "title": "Manzil",
-      "address": "Toshkent shahri, Yuqori Chirchiq tumani, Qorasuv MFY, Y.Rajabiy ko‘chasi.",
+      "address": "Toshkent shahri, Yuqori Chirchiq tumani, Qorasuv MFY, Y.Rajabiy ko'chasi.",
       "location": "https://yandex.uz/map-widget/v1/-/CDh-rVzn"
     }
-  ]
+  ],
+  "readMore": "Batafsil",
+  "submit": "Yuborish"
 }
