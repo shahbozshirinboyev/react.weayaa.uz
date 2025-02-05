@@ -42,6 +42,303 @@
       "description": "WeaYaa - O'zbekistondagi eng yaxshi kontent ishlab chiqaruvchi kompaniya. Biz Koreya va O'zbekistonda joylashganmiz va biz barcha vizual kontentni (o'yinlar, animatsiyalar, filmlar, interyerlar, arxitektura, mahsulotlar, reklama aktsiyalari) yuqori malakali xodimlar bilan ishlab chiqmoqdamiz. Biz doimiy qiyinchilik va chiroyli tuyg'u asosida bozorni boshqaradigan global kompaniya bo'lishni maqsad qilganmiz."
     }
   ],
+  "arts": [
+    {
+      "id": 1,
+      "name": "Qahramonlar",
+      "counts": [
+        {
+          "id": "char-1",
+          "img": "/images/art/characters/bpr_composite.jpg",
+          "title": ""
+        },
+        {
+          "id": "char-2",
+          "img": "/images/art/characters/bpr_human.jpg",
+          "title": ""
+        },
+        {
+          "id": "char-3",
+          "img": "/images/art/characters/girl_3d.jpg",
+          "title": ""
+        },
+        {
+          "id": "char-4",
+          "img": "/images/art/characters/baseball_boy_full.jpg",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Mahluqlar",
+      "counts": [
+        {
+          "id": "mon-1",
+          "img": "/images/art/monsters/bighero.jpg",
+          "title": ""
+        },
+        {
+          "id": "mon-2",
+          "img": "/images/art/monsters/dragonchild.jpg",
+          "title": ""
+        },
+        {
+          "id": "mon-3",
+          "img": "/images/art/monsters/monster_1.jpg",
+          "title": ""
+        },
+        {
+          "id": "mon-4",
+          "img": "/images/art/monsters/robotworker.jpg",
+          "title": ""
+        },
+        {
+          "id": "mon-5",
+          "img": "/images/art/monsters/fatman.png",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Emojilar",
+      "counts": [
+        {
+          "id": "emoticons-1",
+          "img": "/images/art/emoticons/purple-emoticons-h.jpg",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Qurollar",
+      "counts": [
+        {
+          "id": "weap-1",
+          "img": "/images/art/weapons/hammer.jpg",
+          "title": ""
+        },
+        {
+          "id": "weap-2",
+          "img": "/images/art/weapons/shield.jpg",
+          "title": ""
+        },
+        {
+          "id": "weap-3",
+          "img": "/images/art/weapons/sword_0.jpg",
+          "title": ""
+        },
+        {
+          "id": "weap-4",
+          "img": "/images/art/weapons/sword_high.jpg",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tapancha va miltiqlar",
+      "counts": [
+        {
+          "id": "gun-1",
+          "img": "/images/art/guns/goldgun.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-2",
+          "img": "/images/art/guns/goldguns.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-3",
+          "img": "/images/art/guns/gun_1.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-4",
+          "img": "/images/art/guns/gun_2.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-5",
+          "img": "/images/art/guns/gun_3.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-6",
+          "img": "/images/art/guns/gun_4.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-7",
+          "img": "/images/art/guns/gun_5.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-8",
+          "img": "/images/art/guns/gun_6.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-9",
+          "img": "/images/art/guns/gun_7.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-10",
+          "img": "/images/art/guns/gunone.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-11",
+          "img": "/images/art/guns/gunpattern.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-12",
+          "img": "/images/art/guns/gunpatterns.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-13",
+          "img": "/images/art/guns/scifi.jpg",
+          "title": ""
+        },
+        {
+          "id": "gun-14",
+          "img": "/images/art/guns/scifi_all.jpg",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Arxitektura",
+      "counts": [
+
+        {
+          "id": "arch-7",
+          "img": "/images/art/architecture/castle.jpg",
+          "title": ""
+        },
+        {
+          "id": "arch-1",
+          "img": "/images/art/architecture/InteriorDesign_1.jpg",
+          "title": ""
+        },
+        {
+          "id": "arch-2",
+          "img": "/images/art/architecture/InteriorDesign_2.jpg",
+          "title": ""
+        },
+        {
+          "id": "arch-3",
+          "img": "/images/art/architecture/InteriorDesign_3.jpg",
+          "title": ""
+        },
+        {
+          "id": "arch-4",
+          "img": "/images/art/architecture/InteriorDesign_4.jpg",
+          "title": ""
+        },
+        {
+          "id": "arch-5",
+          "img": "/images/art/architecture/InteriorDesign_5.jpg",
+          "title": ""
+        },
+        {
+          "id": "arch-6",
+          "img": "/images/art/architecture/warehouse.jpg",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "UI/UX",
+      "counts": [
+        {
+          "id": "ui-1",
+          "img": "/images/art/ui-ux/cartoon_game.jpg",
+          "title": ""
+        },
+        {
+          "id": "ui-2",
+          "img": "/images/art/ui-ux/cartoon_icon.png",
+          "title": ""
+        },
+        {
+          "id": "ui-3",
+          "img": "/images/art/ui-ux/cartoon_map.png",
+          "title": ""
+        },
+        {
+          "id": "ui-4",
+          "img": "/images/art/ui-ux/cartoon_prise.png",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Reklama va promo",
+      "counts": [
+        {
+          "id": "promo-1",
+          "img": "/images/art/promotions/branding_in_items.jpg",
+          "title": ""
+        },
+        {
+          "id": "promo-2",
+          "img": "/images/art/promotions/modern_1.jpg",
+          "title": ""
+        },
+        {
+          "id": "promo-3",
+          "img": "/images/art/promotions/modern_2.jpg",
+          "title": ""
+        },
+        {
+          "id": "promo-4",
+          "img": "/images/art/promotions/modern_3.jpg",
+          "title": ""
+        },
+        {
+          "id": "promo-5",
+          "img": "/images/art/promotions/modern_4.jpg",
+          "title": ""
+        },
+        {
+          "id": "promo-6",
+          "img": "/images/art/promotions/modern_5.jpg",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Ko‘rinish",
+      "counts": [
+        {
+          "id": "view-1",
+          "img": "/images/art/view/astrum.png",
+          "title": ""
+        },
+        {
+          "id": "view-2",
+          "img": "/images/art/view/it_park.png",
+          "title": ""
+        },
+        {
+          "id": "view-3",
+          "img": "/images/art/view/office.png",
+          "title": ""
+        }
+      ]
+    }
+  ],
   "news": [
     {
       "id": "news-1",

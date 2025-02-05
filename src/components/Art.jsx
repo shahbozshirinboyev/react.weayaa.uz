@@ -10,7 +10,7 @@ import i18n from "../i18n";
 import { motion } from "framer-motion";
 
 // art data
-import { galleryInfo } from "../data/data";
+// import { galleryInfo } from "../data/data";
 
 // Import Swiper styles
 import "swiper/css";
@@ -30,9 +30,10 @@ import { FreeMode } from "swiper/modules";
 
 const Art = forwardRef((props, ref) => {
   const { t } = useTranslation();
+  const arts = t('arts', { returnObjects: true });
 
   const [activeTab, setActiveTab] = useState(0);
-  const [images, setImages] = useState(galleryInfo[0].counts);
+  const [images, setImages] = useState(arts[0].counts);
   const filterTab = (tab) => {
     setImages(tab);
     // console.log(tab);
@@ -60,7 +61,7 @@ const Art = forwardRef((props, ref) => {
           modules={[FreeMode]}
           className="bg-mainColor bg-opacity-10 px-3 py-2 mt-[10px] mb-[25px] rounded-lg justify-center max-w-[850px]"
         >
-          {galleryInfo.map((gallery) => (
+          {arts.map((gallery) => (
             <SwiperSlide key={gallery.id}>
               <button
                 onClick={() => {
