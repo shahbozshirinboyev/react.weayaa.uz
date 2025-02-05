@@ -9,6 +9,7 @@
     {
       "id": 2,
       "href": "#members",
+      "title": "Meet our leaders – they continuously contribute to the growth of our company, driving innovation and making strategic decisions to move us forward.",
       "name": "Members",
       "icon": "bi bi-people"
     },
@@ -31,6 +32,7 @@
       "icon": "bi bi-info-circle"
     }
   ],
+
   "home": [
     {
       "logoWhite": "/images/logo/logo-white.png",
@@ -61,6 +63,11 @@
       "img": "/images/caricature_images/4.jpg",
       "name": "Choi Yeon Soo",
       "label": "WeaYaa Korea GM"
+    },
+    {
+      "img": "/images/caricature_images/15.jpg",
+      "name": "Lee Mi Kyung",
+      "label": "WeaYaa Korea PM"
     },
     {
       "img": "/images/caricature_images/5.jpg",

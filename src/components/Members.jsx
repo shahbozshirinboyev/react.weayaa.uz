@@ -1,17 +1,18 @@
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import { MembersInfo } from "../data/data";
+// import { MembersInfo } from "../data/data";
 
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
 const Members = forwardRef((props, ref) => {
   const { t } = useTranslation();
+  const members = t('members', { returnObjects: true });
   return (
     <section ref={ref} className="h-full">
 
       <p className="container font-semibold text-2xl lg:text-4xl text-center mt-[25px] text-mainColor">{t(`menus.1.name`)}</p>
-      <p className="container font-semibold text-md lg:text-xl text-center mt-[10px] mb-[25px] xl:px-40 text-mainColor">Meet our leaders – they continuously contribute to the growth of our company, driving innovation and making strategic decisions to move us forward.</p>
+      <p className="container font-semibold text-md lg:text-xl text-center mt-[10px] mb-[25px] xl:px-40 text-mainColor">{t(`menus.1.title`)}</p>
 
       <div className="flex overflow-x-hidden items-center relative">
 
@@ -23,7 +24,7 @@ const Members = forwardRef((props, ref) => {
           animate={{ x: "-100%" }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           className="flex flex-shrink-0">
-          {MembersInfo.map((member, index) => (
+          {members.map((member, index) => (
             <div
               key={index}
               className={`m-2 border border-mainColor border-opacity-30 w-[200px] lg:w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-md cursor-pointer`}
@@ -42,7 +43,7 @@ const Members = forwardRef((props, ref) => {
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           className="flex flex-shrink-0"
         >
-          {MembersInfo.map((member, index) => (
+          {members.map((member, index) => (
             <div
               key={index}
               className={`m-2 border border-mainColor border-opacity-30 w-[200px] lg:w-[260px] rounded-lg grayscale hover:grayscale-0 relative hover:drop-shadow-md cursor-pointer`}
