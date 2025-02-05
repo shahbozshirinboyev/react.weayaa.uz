@@ -2,7 +2,8 @@ import React, { forwardRef } from "react";
 import { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
+
+import { FreeMode, Mousewheel } from "swiper/modules";
 
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
@@ -52,10 +53,11 @@ const Art = forwardRef((props, ref) => {
 
       <>
         <Swiper
-          slidesPerView={"auto"}
           spaceBetween={10}
+          slidesPerView={"auto"}
           freeMode={true}
-          modules={[FreeMode]}
+          modules={[FreeMode, Mousewheel]}
+          mousewheel={true}
           className="bg-mainColor bg-opacity-5 shadow-md px-4 py-3 mt-[10px] mb-[25px] rounded-lg justify-center select-none"
         >
           {arts.map((gallery) => (
@@ -76,10 +78,15 @@ const Art = forwardRef((props, ref) => {
       </>
       <>
         <div className="columns-2 lg:columns-3 xl:columns-4">
-          {images.map((item) => (
+          {images.map((item, index) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
               key={item.id}
               className="m-2 transition-all duration-300 cursor-pointer"
             >
