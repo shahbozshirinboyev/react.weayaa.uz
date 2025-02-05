@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef, useEffect, useState } from "react";
-import { ContactInfo } from "../data/data";
+// import { ContactInfo } from "../data/data";
 import { http } from "../services/telegramApi";
 import { chatId } from "../services/telegramApi";
 import toast, { Toaster } from "react-hot-toast";
@@ -9,6 +9,7 @@ import i18n from "../i18n";
 
 const Contact = forwardRef((props, ref) => {
   const { t } = useTranslation();
+  const contacts = t('contacts', { returnObjects: true });
 
   const formRef = useRef(null);
   const addressRef = useRef(null);
@@ -76,7 +77,7 @@ const Contact = forwardRef((props, ref) => {
       <Toaster position="top-right" />
       <div>
         <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] text-mainColor">
-          Contact Us
+        {t(`menus.4.name`)}
         </p>
       </div>
 
@@ -90,8 +91,8 @@ const Contact = forwardRef((props, ref) => {
               <i className="bi bi-geo-alt-fill text-[30px]"></i>
             </div>
             <div className="col-span-3">
-              <h1 className="font-bold text-mainColor">Address</h1>
-              <h4 className="text-mainColor">{ContactInfo[0].address}</h4>
+              <h1 className="font-bold text-mainColor">{t(`contacts.0.title`)}</h1>
+              <h4 className="text-mainColor">{t(`contacts.0.address`)}</h4>
             </div>
           </div>
 
@@ -102,7 +103,7 @@ const Contact = forwardRef((props, ref) => {
             }}
           >
             <iframe
-              src={ContactInfo[0].location}
+              src={t(`contacts.0.location`)}
               className="w-full h-full border rounded-xl border-mainColor border-opacity-40"
               allowFullScreen={true}
             ></iframe>

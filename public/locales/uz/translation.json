@@ -41,5 +41,50 @@
       "info": "Global Contents Development kompaniyasi",
       "description": "WeaYaa - O'zbekistondagi eng yaxshi kontent ishlab chiqaruvchi kompaniya. Biz Koreya va O'zbekistonda joylashganmiz va biz barcha vizual kontentni (o'yinlar, animatsiyalar, filmlar, interyerlar, arxitektura, mahsulotlar, reklama aktsiyalari) yuqori malakali xodimlar bilan ishlab chiqmoqdamiz. Biz doimiy qiyinchilik va chiroyli tuyg'u asosida bozorni boshqaradigan global kompaniya bo'lishni maqsad qilganmiz."
     }
+  ],
+  "news": [
+    {
+      "id": "news-1",
+      "img": "/images/news/news_4.jpg",
+      "title": "WeaYaa xayriya qilishdi",
+      "date": "16.10.2024",
+      "by": "WeaYaa",
+      "description": "Shahar kasalxonasiga Wi-Fi internet xayriyasi. 16-sonli shahar kasalxonasi direktori o‘z minnatdorchiligini bildirdi.",
+      "info": "16-sonli shahar kasalxonasiga Wi-Fi internet xayriyasi. 2024-yil 15-oktabr kuni WeaYaa bosh direktori Kim Dae Keun 16-sonli shahar kasalxonasida barqaror xizmat ko‘rsatish uchun bepul Wi-Fi muhitini taqdim etdi va kelajakda turli IT-loyihalar bo‘yicha hamkorlik qilishga va’da berdi. Kasalxona direktori minnatdorchilik bildirdi."
+    },
+    {
+      "id": "news-2",
+      "img": "/images/news/news_3.jpg",
+      "title": "WeaYaa muhiti",
+      "date": "30.07.2024",
+      "by": "WeaYaa",
+      "description": "WeaYaa – bu Astrumdagi aqlli dizaynerlar va iste’dodli dasturchilar o‘z orzularini ro‘yobga chiqaradigan joy.",
+      "info": "WeaYaa – bu Astrumdagi aqlli dizaynerlar va iste’dodli dasturchilar o‘z orzularini ro‘yobga chiqaradigan joy. O‘z rezyume va portfelingizni veb-sayt orqali yuboring. (weayaa.uz)"
+    },
+    {
+      "id": "news-3",
+      "img": "/images/news/news_2.jpg",
+      "title": "WeaYaa intervyusi",
+      "date": "24.06.2024",
+      "by": "WeaYaa",
+      "description": "WeaYaa vakillari O‘zbekistondagi IT Parkda bo‘lib o‘tgan tadbirda intervyu berishdi.",
+      "info": "WeaYaa Korea bosh direktori Li Seung Hyun va WeaYaa Uzbekistan bosh direktori Kim Dae Keunning intervyusini tomosha qiling. Ular O‘zbekistonda iste’dodli grafik dizayner va IT mutaxassislarini qanday topganliklarini aytib berishdi. Ular mamlakatning barqarorligi va hukumat tomonidan ko‘rsatilgan kuchli qo‘llab-quvvatlash haqida gapirib, kutilganidan ham yuqori darajada yordam olishganini ta’kidladilar. O‘zbekistonlik tajribali dizaynerlar eng yaxshi koreys kompaniyalari bilan hamkorlik qilishga tayyor ekanliklarini ko‘rsatmoqda, bu esa mintaqaning IT va dizayn sanoatidagi ulkan o‘sish salohiyatini namoyon etadi."
+    },
+    {
+      "id": "news-4",
+      "img": "/images/news/news_1.jpg",
+      "title": "IT PARK va WeaYaa",
+      "date": "23.04.2024",
+      "by": "IT PARK",
+      "description": "O‘zbekistondagi axborot texnologiyalari sohasidagi iste’dodli yoshlar Seulda taqdim etildi.",
+      "info": "IT Parkning rezident kompaniyalari, jumladan Janubiy Koreyaning o‘yin ishlab chiqaruvchi WeaYaa kompaniyasi va logistika firmasi Geo2 IUT Global, O‘zbekistonda olib borayotgan faoliyati va erishgan yutuqlari bilan o‘rtoqlashishdi."
+    }
+  ],
+  "contacts": [
+    {
+      "title": "Manzil",
+      "address": "Toshkent shahri, Yuqori Chirchiq tumani, Qorasuv MFY, Y.Rajabiy ko‘chasi.",
+      "location": "https://yandex.uz/map-widget/v1/-/CDh-rVzn"
+    }
   ]
 }

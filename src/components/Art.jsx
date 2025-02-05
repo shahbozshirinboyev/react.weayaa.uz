@@ -30,7 +30,7 @@ import { FreeMode } from "swiper/modules";
 
 const Art = forwardRef((props, ref) => {
   const { t } = useTranslation();
-  
+
   const [activeTab, setActiveTab] = useState(0);
   const [images, setImages] = useState(galleryInfo[0].counts);
   const filterTab = (tab) => {
@@ -50,7 +50,7 @@ const Art = forwardRef((props, ref) => {
   return (
     <section ref={ref} className="container h-full">
 
-      <p className="font-semibold text-2xl lg:text-4xl text-center mt-[25px] text-mainColor">Art</p>
+      <p className="font-semibold text-2xl lg:text-4xl text-center mt-[25px] text-mainColor">{t(`menus.2.name`)}</p>
 
       <>
         <Swiper

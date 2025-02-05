@@ -28,7 +28,7 @@
     {
       "id": 5,
       "href": "#contact",
-      "name": "Contact",
+      "name": "Contacts",
       "icon": "bi bi-info-circle"
     }
   ],
@@ -433,6 +433,7 @@
 
   "contacts": [
     {
+      "title": "Address",
       "address": "Tashkent city, Upper Chirchik district, Qorasuv MFY, Y.Rajabiy street.",
       "location": "https://yandex.uz/map-widget/v1/-/CDh-rVzn"
     }

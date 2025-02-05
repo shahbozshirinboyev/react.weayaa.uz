@@ -1,8 +1,5 @@
 import React, { forwardRef } from "react";
 
-// news data
-import { NewsInfo } from "../data/data";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -21,11 +18,12 @@ import NewsModal from "./NewsModal";
 
 const News = forwardRef((props, ref) => {
   const { t } = useTranslation();
+  const news = t('news', { returnObjects: true });
   return (
     <section ref={ref} className="container">
       <div>
         <p className="font-semibold text-2xl lg:text-4xl text-center my-[25px] text-mainColor">
-          News
+        {t(`menus.3.name`)}
         </p>
       </div>
 
@@ -64,7 +62,7 @@ const News = forwardRef((props, ref) => {
         }}
 
       >
-        {NewsInfo.map((news) => (
+        {news.map((news) => (
           <SwiperSlide
             className="border border-mainColor rounded-lg border-opacity-40 cursor-pointer"
             key={news.id}
