@@ -88,14 +88,17 @@ const Art = forwardRef((props, ref) => {
                 ease: "easeOut"
               }}
               key={item.id}
-              className="m-2 transition-all duration-300 cursor-pointer"
+              className="m-2 transition-all duration-300 cursor-pointer relative group"
             >
               <img
                 onClick={() => handleImageClick(item.img)}
-                className="w-full transition-all duration-300 rounded-lg shadow-md hover:opacity-50"
+                className="w-full transition-all duration-300 rounded-lg shadow-md"
                 src={item.img}
                 alt={item.title}
               />
+              <div onClick={() => handleImageClick(item.img)} className="w-full h-full absolute top-0 left-0 flex justify-center items-center rounded-lg opacity-0 group-hover:opacity-100 bg-black/20 backdrop-blur-sm bg-opacity-30 transition-all duration-300">
+              <i className="bi bi-search text-[60px] text-white flex justify-center items-center"></i>
+              </div>
             </motion.div>
           ))}
         </div>
