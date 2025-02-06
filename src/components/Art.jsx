@@ -58,10 +58,12 @@ const Art = forwardRef((props, ref) => {
           freeMode={true}
           modules={[FreeMode, Mousewheel]}
           mousewheel={true}
-          className="bg-mainColor bg-opacity-5 shadow-md px-4 py-3 mt-[10px] mb-[25px] rounded-lg justify-center select-none"
+          className="bg-mainColor bg-opacity-5 shadow-md px-4 py-3 mt-[10px] mb-[25px] rounded-lg justify-center select-none max-w-fit [&_.swiper-wrapper]:gap-2 relative"
         >
+          <div className="h-full w-[20px] border-0 border-red-700 absolute top-0 left-0 rounded-tl-lg rounded-bl-lg z-[5] bg-gradient-to-r from-mainColor/10 to-transparent"></div>
+          <div className="h-full w-[20px] border-0 border-red-700 absolute top-0 right-0 rounded-tr-lg rounded-br-lg z-[5] bg-gradient-to-l from-mainColor/10 to-transparent"></div>
           {arts.map((gallery) => (
-            <SwiperSlide key={gallery.id} className="w-auto">
+            <SwiperSlide key={gallery.id} className="w-auto !m-0">
               <button
                 onClick={() => { filterTab(gallery.counts); setActiveTab(gallery.id); }}
                 className={`border-transparent font-medium ${
