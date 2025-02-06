@@ -479,5 +479,6 @@
   "inputFirstName": "Type first name",
   "inputLastName": "Type last name",
   "inputEmail": "Type email address",
-  "inputMessage": "Type message ..."
+  "inputMessage": "Type message ...",
+  "language": "Select language"
 }

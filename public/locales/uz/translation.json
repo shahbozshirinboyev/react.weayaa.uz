@@ -389,5 +389,6 @@
   "inputFirstName": "Ismni kiriting",
   "inputLastName": "Familiyani kiriting",
   "inputEmail": "Email manzilini kiriting",
-  "inputMessage": "Xabar yozing..."
+  "inputMessage": "Xabar yozing...",
+  "language": "Tilni tanlang"
 }

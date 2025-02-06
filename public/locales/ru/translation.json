@@ -390,5 +390,6 @@
   "inputFirstName": "Введите имя",
   "inputLastName": "Введите фамилию",
   "inputEmail": "Введите адрес электронной почты",
-  "inputMessage": "Введите сообщение..."
+  "inputMessage": "Введите сообщение...",
+  "language": "Выберите язык"
 }

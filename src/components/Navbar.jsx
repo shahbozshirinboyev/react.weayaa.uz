@@ -63,10 +63,9 @@ function Navbar({ setNavRef }) {
     <section
       ref={navRef}
       className={`fixed w-full px-2 z-[999] transition-all duration-300
-        ${
-          scrollY > 50
-            ? "py-2 bg-white bg-opacity-[95%] shadow-md"
-            : "py-4 bg-transparent shadow-none"
+        ${scrollY > 50
+          ? "py-2 bg-white bg-opacity-[95%] shadow-md"
+          : "py-4 bg-transparent shadow-none"
         }`}
     >
       <ul className="container flex justify-between items-center mx-auto gap-4 text-center">
@@ -90,11 +89,10 @@ function Navbar({ setNavRef }) {
                 href={menu.href}
                 onClick={() => setActiveId(menu.id)}
                 className={`cursor-pointer font-semibold transition-all duration-300 w-[90px] hover:text-white hover:bg-mainColor btn btn-sm border-0 shadow-none whitespace-nowrap
-                ${
-                  scrollY > 50
+                ${scrollY > 50
                     ? "text-mainColor bg-mainColor bg-opacity-20"
                     : "text-white bg-opacity-0"
-                }
+                  }
                 ${activeId === menu.id ? "!bg-mainColor !text-white" : ""}`}
               >
                 {t(`menus.${menu.id - 1}.name`)}
@@ -109,9 +107,8 @@ function Navbar({ setNavRef }) {
               <button
                 onClick={() => setLanguageBrn(!languageBtn)}
                 type="button"
-                className={`${
-                  scrollY > 50 ? "text-mainColor" : "text-white"
-                } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 active:scale-95 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
+                className={`${scrollY > 50 ? "text-mainColor" : "text-white"
+                  } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 active:scale-95 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
               >
                 <i className="bi bi-translate"></i>
                 {!languageBtn && <i className="bi bi-chevron-down"></i>}
@@ -136,10 +133,10 @@ function Navbar({ setNavRef }) {
                     id="menu-item-0"
                   >
                     <img
-                    src="/images/language_icons/en.png"
-                    className="w-5"
-                  />
-                  <span>English</span>
+                      src="/images/language_icons/en.png"
+                      className="w-5"
+                    />
+                    <span>English</span>
                   </a>
                   <a
                     onClick={() => i18n.changeLanguage("uz")}
@@ -149,10 +146,10 @@ function Navbar({ setNavRef }) {
                     id="menu-item-0"
                   >
                     <img
-                    src="/images/language_icons/uz.png"
-                    className="w-5"
-                  />
-                  <span>O'zbekcha</span>
+                      src="/images/language_icons/uz.png"
+                      className="w-5"
+                    />
+                    <span>O'zbekcha</span>
                   </a>
                   <a
                     onClick={() => i18n.changeLanguage("ko")}
@@ -162,10 +159,10 @@ function Navbar({ setNavRef }) {
                     id="menu-item-0"
                   >
                     <img
-                    src="/images/language_icons/ko.png"
-                    className="w-5"
-                  />
-                  <span>Korean</span>
+                      src="/images/language_icons/ko.png"
+                      className="w-5"
+                    />
+                    <span>Korean</span>
                   </a>
                   <a
                     onClick={() => i18n.changeLanguage("ru")}
@@ -175,10 +172,10 @@ function Navbar({ setNavRef }) {
                     id="menu-item-0"
                   >
                     <img
-                    src="/images/language_icons/ru.png"
-                    className="w-5"
-                  />
-                  <span>Russian</span>
+                      src="/images/language_icons/ru.png"
+                      className="w-5"
+                    />
+                    <span>Russian</span>
                   </a>
 
                 </div>
@@ -189,9 +186,8 @@ function Navbar({ setNavRef }) {
 
         <li
           onClick={() => setOpen(!open)}
-          className={`text-end w-[50px] text-[30px] flex justify-center items-center ${
-            scrollY > 50 ? "text-mainColor" : "text-white"
-          } md:hidden cursor-pointer transition-all duration-300`}
+          className={`text-end w-[50px] text-[30px] flex justify-center items-center ${scrollY > 50 ? "text-mainColor" : "text-white"
+            } md:hidden cursor-pointer transition-all duration-300`}
         >
           {!open && (
             <AnimatePresence mode="wait">
@@ -227,9 +223,8 @@ function Navbar({ setNavRef }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -300 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className={`bg-white shadow-md fixed w-[calc(100%-16px)] p-2 md:hidden rounded-md border border-mainColor border-opacity-20 ${
-              scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
-            }`}
+            className={`bg-white shadow-md fixed w-[calc(100%-16px)] p-2 md:hidden rounded-md border border-mainColor border-opacity-20 ${scrollY > 50 ? "mt-[26px]" : "mt-[26px]"
+              }`}
           >
             <ul className="items-center text-center p-2">
               {menus.map((menu) => (
@@ -240,17 +235,49 @@ function Navbar({ setNavRef }) {
                       setActiveId(menu.id);
                       setOpen(false);
                     }}
-                    className={`btn btn-sm w-full transition-all hover:bg-mainColor hover:bg-opacity-40 flex justify-start items-center duration-300 border-0 ${
-                      activeId === menu.id
+                    className={`btn btn-sm w-full transition-all hover:bg-mainColor hover:bg-opacity-40 flex justify-start items-center duration-300 border-0 ${activeId === menu.id
                         ? "text-white bg-mainColor"
                         : "text-mainColor bg-mainColor bg-opacity-20"
-                    }`}
+                      }`}
                   >
                     <i className={menu.icon}></i>
                     <span>{t(`menus.${menu.id - 1}.name`)}</span>
                   </a>
                 </li>
               ))}
+
+              <p className="w-full text-start pt-2 pb-1 text-mainColor">{t(`language`)}:</p>
+
+              <div className="flex justify-start items-center gap-1">
+                <a
+                  onClick={() => i18n.changeLanguage("en")}
+                  className={`btn btn-sm px-[6px] !py-[4px] border-0 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'en' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                >
+                  <img src="/images/language_icons/en.png" className="w-5" /><span>English</span>
+                </a>
+
+                <a
+                  onClick={() => i18n.changeLanguage("uz")}
+                  className={`btn btn-sm px-[6px] !py-[4px] border-0 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'uz' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                >
+                  <img src="/images/language_icons/uz.png" className="w-5" /><span>O'zbekcha</span>
+                </a>
+
+                <a
+                  onClick={() => i18n.changeLanguage("ko")}
+                  className={`btn btn-sm px-[6px] !py-[4px] border-0 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ko' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                >
+                  <img src="/images/language_icons/ko.png" className="w-5" /><span>Korean</span>
+                </a>
+
+                <a
+                  onClick={() => i18n.changeLanguage("ru")}
+                  className={`btn btn-sm px-[6px] !py-[4px] border-0 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ru' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                >
+                  <img src="/images/language_icons/ru.png" className="w-5" /><span>Russian</span>
+                </a>
+              </div>
+
             </ul>
           </motion.div>
         )}
