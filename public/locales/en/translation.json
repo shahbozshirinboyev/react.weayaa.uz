@@ -475,5 +475,9 @@
     }
   ],
   "readMore": "Read more",
-  "submit": "Send"
+  "submit": "Send",
+  "inputFirstName": "Type first name",
+  "inputLastName": "Type last name",
+  "inputEmail": "Type email address",
+  "inputMessage": "Type message ..."
 }

@@ -116,46 +116,46 @@ const Contact = forwardRef((props, ref) => {
             className="grid grid-cols-1 text-mainColor h-full"
           >
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-medium text-[16px]">First Name:</span>
+              {/* <span className="font-medium text-[16px]">First Name:</span> */}
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
-                placeholder="Type first your name ..."
+                placeholder={t(`inputFirstName`)}
                 required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-medium text-[16px]">Last Name:</span>
+              {/* <span className="font-medium text-[16px]">Last Name:</span> */}
               <input
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
-                placeholder="Type last your name ..."
+                placeholder={t(`inputLastName`)}
                 required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-medium text-[16px]">Your Email:</span>
+              {/* <span className="font-medium text-[16px]">Your Email:</span> */}
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
-                placeholder="Type your email address ..."
+                placeholder={t(`inputEmail`)}
                 required
               />
             </label>
             <label className="grid grid-cols-1 mb-2">
-              <span className="font-medium text-[16px]">Your Message:</span>
+              {/* <span className="font-medium text-[16px]">Your Message:</span> */}
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
                 className="border rounded-lg border-mainColor border-opacity-40 py-2 px-3 bg-mainColor bg-opacity-5 placeholder:text-mainColor placeholder:text-opacity-40 focus:outline-none"
-                placeholder="Type your message ..."
+                placeholder={t(`inputMessage`)}
                 required
               ></textarea>
             </label>

@@ -388,5 +388,9 @@
     }
   ],
   "readMore": "더 보기",
-  "submit": "제출"
+  "submit": "제출",
+  "inputFirstName": "이름을 입력하세요",
+  "inputLastName": "성을 입력하세요",
+  "inputEmail": "이메일 주소를 입력하세요",
+  "inputMessage": "메시지를 입력하세요..."
 }

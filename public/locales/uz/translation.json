@@ -385,5 +385,9 @@
     }
   ],
   "readMore": "Batafsil",
-  "submit": "Yuborish"
+  "submit": "Yuborish",
+  "inputFirstName": "Ismni kiriting",
+  "inputLastName": "Familiyani kiriting",
+  "inputEmail": "Email manzilini kiriting",
+  "inputMessage": "Xabar yozing..."
 }
