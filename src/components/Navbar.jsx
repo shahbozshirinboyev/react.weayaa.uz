@@ -82,13 +82,13 @@ function Navbar({ setNavRef }) {
           </a>
         </li>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 md:gap-1 lg:gap-4">
           {menus.map((menu) => (
             <li key={menu.id} className={`hidden md:flex`}>
               <a
                 href={menu.href}
                 onClick={() => setActiveId(menu.id)}
-                className={`cursor-pointer font-semibold transition-all duration-300 w-[90px] md:w-[80px] lg:w-[90px] hover:text-white hover:bg-mainColor btn btn-sm border-0 shadow-none whitespace-nowrap
+                className={`cursor-pointer font-semibold transition-all duration-300 w-[90px] md:w-[84px] lg:w-[90px] hover:text-white hover:bg-mainColor btn btn-sm border-0 shadow-none whitespace-nowrap
                 ${scrollY > 50
                     ? "text-mainColor bg-mainColor bg-opacity-20"
                     : "text-white bg-opacity-0"
@@ -100,87 +100,87 @@ function Navbar({ setNavRef }) {
             </li>
           ))}
           <li className="cursor-pointer text-end hidden md:block lg:hidden">
-          <div className="relative inline-block text-left font-bold" ref={dropdownRef}>
-            <div className="relative">
-              <button
-                onClick={() => setLanguageBrn(!languageBtn)}
-                type="button"
-                className={`${scrollY > 50 ? "text-mainColor" : "text-white"
-                  } w-full justify-center gap-x-1.5 px-3 py-2 border-0 bg-mainColor bg-opacity-20 active:scale-95 transition-all duration-300 btn bg-transparent shadow-none btn-sm hover:bg-mainColor hover:text-white`}
-              >
-                <i className="bi bi-translate"></i>
-                {/* {!languageBtn && <i className="bi bi-chevron-down"></i>} */}
-                {/* {languageBtn && <i className="bi bi-chevron-up"></i>} */}
-              </button>
-            </div>
-
-            {languageBtn && (
-              <div
-                className="absolute right-0 z-10 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-300"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="menu-button"
-                tabIndex="-1"
-              >
-                <div className="py-1" role="none">
-                  <a
-                    onClick={() => i18n.changeLanguage("en")}
-                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'en' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="menu-item-0"
-                  >
-                    <img
-                      src="/images/language_icons/en.png"
-                      className="w-5"
-                    />
-                    <span>English</span>
-                  </a>
-                  <a
-                    onClick={() => i18n.changeLanguage("uz")}
-                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'uz' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="menu-item-0"
-                  >
-                    <img
-                      src="/images/language_icons/uz.png"
-                      className="w-5"
-                    />
-                    <span>O'zbekcha</span>
-                  </a>
-                  <a
-                    onClick={() => i18n.changeLanguage("ko")}
-                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ko' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="menu-item-0"
-                  >
-                    <img
-                      src="/images/language_icons/ko.png"
-                      className="w-5"
-                    />
-                    <span>Korean</span>
-                  </a>
-                  <a
-                    onClick={() => i18n.changeLanguage("ru")}
-                    className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ru' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="menu-item-0"
-                  >
-                    <img
-                      src="/images/language_icons/ru.png"
-                      className="w-5"
-                    />
-                    <span>Russian</span>
-                  </a>
-
-                </div>
+            <div className="relative inline-block text-left font-bold" ref={dropdownRef}>
+              <div className="relative">
+                <button
+                  onClick={() => setLanguageBrn(!languageBtn)}
+                  type="button"
+                  className={`${scrollY > 50 ? "text-mainColor" : "text-white"
+                    } w-full justify-center gap-x-1.5 px-3 py-2 border-0 bg-mainColor bg-opacity-20 active:scale-95 transition-all duration-300 btn bg-transparent shadow-none btn-sm hover:bg-mainColor hover:text-white`}
+                >
+                  <i className="bi bi-translate"></i>
+                  {!languageBtn && <i className="bi bi-chevron-down"></i>}
+                  {languageBtn && <i className="bi bi-chevron-up"></i>}
+                </button>
               </div>
-            )}
-          </div>
-        </li>
+
+              {languageBtn && (
+                <div
+                  className="absolute right-0 z-10 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-300"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="menu-button"
+                  tabIndex="-1"
+                >
+                  <div className="py-1" role="none">
+                    <a
+                      onClick={() => i18n.changeLanguage("en")}
+                      className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'en' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                    >
+                      <img
+                        src="/images/language_icons/en.png"
+                        className="w-5"
+                      />
+                      <span>English</span>
+                    </a>
+                    <a
+                      onClick={() => i18n.changeLanguage("uz")}
+                      className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'uz' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                    >
+                      <img
+                        src="/images/language_icons/uz.png"
+                        className="w-5"
+                      />
+                      <span>O'zbekcha</span>
+                    </a>
+                    <a
+                      onClick={() => i18n.changeLanguage("ko")}
+                      className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ko' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                    >
+                      <img
+                        src="/images/language_icons/ko.png"
+                        className="w-5"
+                      />
+                      <span>Korean</span>
+                    </a>
+                    <a
+                      onClick={() => i18n.changeLanguage("ru")}
+                      className={`flex gap-2 px-2 py-2 mx-2 my-1 rounded-md text-sm text-mainColor transition-all duration-300 hover:bg-mainColor hover:bg-opacity-40 ${localStorage.getItem('i18nextLng') === 'ru' ? 'bg-mainColor hover:text-mainColor text-white' : ''}`}
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                    >
+                      <img
+                        src="/images/language_icons/ru.png"
+                        className="w-5"
+                      />
+                      <span>Russian</span>
+                    </a>
+
+                  </div>
+                </div>
+              )}
+            </div>
+          </li>
         </div>
 
         <li className="cursor-pointer text-end hidden lg:block">
@@ -318,8 +318,8 @@ function Navbar({ setNavRef }) {
                       setOpen(false);
                     }}
                     className={`btn btn-sm w-full transition-all hover:bg-mainColor hover:bg-opacity-40 flex justify-start items-center duration-300 border-0 ${activeId === menu.id
-                        ? "text-white bg-mainColor"
-                        : "text-mainColor bg-mainColor bg-opacity-20"
+                      ? "text-white bg-mainColor"
+                      : "text-mainColor bg-mainColor bg-opacity-20"
                       }`}
                   >
                     <i className={menu.icon}></i>
