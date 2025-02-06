@@ -14,10 +14,12 @@ function Navbar({ setNavRef }) {
   const menus = t('menus', { returnObjects: true });
   const [open, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [languageBtn, setLanguageBrn] = useState(false);
+  const [languageBtn1, setLanguageBtn1] = useState(false);
+  const [languageBtn2, setLanguageBtn2] = useState(false);
   const [activeId, setActiveId] = useState(1);
   const navRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const dropdownRef1 = useRef(null);
+  const dropdownRef2 = useRef(null);
 
   useEffect(() => {
     setNavRef(navRef?.current?.offsetHeight);
@@ -48,8 +50,8 @@ function Navbar({ setNavRef }) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setLanguageBrn(false);
+      if (dropdownRef1.current && !dropdownRef1.current.contains(event.target)) {
+        setLanguageBtn1(false);
       }
     };
 
@@ -57,7 +59,20 @@ function Navbar({ setNavRef }) {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [dropdownRef]);
+  }, [dropdownRef1]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef2.current && !dropdownRef2.current.contains(event.target)) {
+        setLanguageBtn2(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef2]);
 
   return (
     <section
@@ -83,6 +98,7 @@ function Navbar({ setNavRef }) {
         </li>
 
         <div className="flex gap-4 md:gap-1 lg:gap-4">
+
           {menus.map((menu) => (
             <li key={menu.id} className={`hidden md:flex`}>
               <a
@@ -99,22 +115,23 @@ function Navbar({ setNavRef }) {
               </a>
             </li>
           ))}
+
           <li className="cursor-pointer text-end hidden md:block lg:hidden">
-            <div className="relative inline-block text-left font-bold" ref={dropdownRef}>
+            <div className="relative inline-block text-left font-bold" ref={dropdownRef1}>
               <div className="relative">
                 <button
-                  onClick={() => setLanguageBrn(!languageBtn)}
+                  onClick={() => setLanguageBtn1(!languageBtn1)}
                   type="button"
                   className={`${scrollY > 50 ? "text-mainColor" : "text-white"
                     } w-full justify-center gap-x-1.5 px-3 py-2 border-0 bg-mainColor bg-opacity-20 active:scale-95 transition-all duration-300 btn bg-transparent shadow-none btn-sm hover:bg-mainColor hover:text-white`}
                 >
                   <i className="bi bi-translate"></i>
-                  {!languageBtn && <i className="bi bi-chevron-down"></i>}
-                  {languageBtn && <i className="bi bi-chevron-up"></i>}
+                  {!languageBtn1 && <i className="bi bi-chevron-down"></i>}
+                  {languageBtn1 && <i className="bi bi-chevron-up"></i>}
                 </button>
               </div>
 
-              {languageBtn && (
+              {languageBtn1 && (
                 <div
                   className="absolute right-0 z-10 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-300"
                   role="menu"
@@ -181,24 +198,25 @@ function Navbar({ setNavRef }) {
               )}
             </div>
           </li>
+
         </div>
 
         <li className="cursor-pointer text-end hidden lg:block">
-          <div className="relative inline-block text-left font-bold" ref={dropdownRef}>
+          <div className="relative inline-block text-left font-bold" ref={dropdownRef2}>
             <div className="relative">
               <button
-                onClick={() => setLanguageBrn(!languageBtn)}
+                onClick={() =>setLanguageBtn2(!languageBtn2)}
                 type="button"
                 className={`${scrollY > 50 ? "text-mainColor" : "text-white"
                   } inline-flex w-full justify-center gap-x-1.5 px-3 py-2 active:scale-95 transition-all duration-300 btn bg-transparent border-0 shadow-none btn-sm hover:bg-mainColor hover:text-white`}
               >
                 <i className="bi bi-translate"></i>
-                {!languageBtn && <i className="bi bi-chevron-down"></i>}
-                {languageBtn && <i className="bi bi-chevron-up"></i>}
+                {!languageBtn2 && <i className="bi bi-chevron-down"></i>}
+                {languageBtn2 && <i className="bi bi-chevron-up"></i>}
               </button>
             </div>
 
-            {languageBtn && (
+            {languageBtn2 && (
               <div
                 className="absolute right-0 z-10 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-300"
                 role="menu"
