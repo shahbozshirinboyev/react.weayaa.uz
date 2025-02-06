@@ -106,6 +106,7 @@ const Contact = forwardRef((props, ref) => {
               src={t(`contacts.0.location`)}
               className="w-full h-full border rounded-xl border-mainColor border-opacity-20"
               allowFullScreen={true}
+              loading="lazy"
             ></iframe>
           </div>
         </div>
