@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 // components
 import Home from "../components/Home";
 import Members from "../components/Members";
@@ -8,54 +10,69 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
 function RootLayout() {
   const [navRef, setNavRef] = useState(0);
+  const sectionsRef = useRef([]);
+
+  useEffect(() => {
+    sectionsRef.current.slice(1).forEach((section, index) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+        }
+      );
+    });
+  }, []);
+
   return (
     <>
       <main>
         <Navbar setNavRef={setNavRef} />
 
-        <section id="home">
+        <section id="home" ref={(el) => (sectionsRef.current[0] = el)}>
           <Home />
         </section>
 
         <section
           id="members"
-          // className="h-screen"
-          style={{ paddingTop: `${navRef}px`,
-          // paddingBottom: `${navRef}px`
-        }}
-        // className="border-2 border-sky-600"
+          ref={(el) => (sectionsRef.current[1] = el)}
+          style={{ paddingTop: `${navRef}px` }}
         >
           <Members />
         </section>
 
         <section
           id="art"
-          style={{ paddingTop: `${navRef}px`,
-          // paddingBottom: `${navRef}px`
-        }}
-        // className="border-2 border-sky-600"
+          ref={(el) => (sectionsRef.current[2] = el)}
+          style={{ paddingTop: `${navRef}px` }}
         >
           <Art />
         </section>
 
         <section
           id="news"
-          // className="h-screen"
-          style={{ paddingTop: `${navRef}px`,
-          // paddingBottom: `${navRef}px`
-        }}
+          ref={(el) => (sectionsRef.current[3] = el)}
+          style={{ paddingTop: `${navRef}px` }}
         >
           <News />
         </section>
 
         <section
           id="contact"
-          // className="h-screen border-2 border-sky-600"
-          style={{ paddingTop: `${navRef}px`,
-          // paddingBottom: `${navRef}px`
-         }}
+          ref={(el) => (sectionsRef.current[4] = el)}
+          style={{ paddingTop: `${navRef}px` }}
         >
           <Contact />
         </section>
