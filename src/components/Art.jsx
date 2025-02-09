@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,11 +8,8 @@ import { FreeMode, Mousewheel } from "swiper/modules";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
-// motion framer
-import { motion } from "framer-motion";
-
-// art data
-// import { galleryInfo } from "../data/data";
+// Import GSAP
+import { gsap } from "gsap";
 
 // Import Swiper styles
 import "swiper/css";
@@ -46,6 +43,22 @@ const Art = forwardRef((props, ref) => {
   };
 
   const [activeImg, setActiveImg] = useState("");
+
+  useEffect(() => {
+    images.forEach((item, index) => {
+      gsap.fromTo(
+        `.art-image-${index}`,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          delay: index * 0.2,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+    });
+  }, [images]);
+
   return (
     <section ref={ref} className="container h-full">
 
@@ -81,16 +94,9 @@ const Art = forwardRef((props, ref) => {
       <>
         <div className="columns-2 lg:columns-3 xl:columns-4">
           {images.map((item, index) => (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.1,
-                ease: "easeOut"
-              }}
+            <div
               key={item.id}
-              className="m-2 transition-all duration-300 cursor-pointer relative group"
+              className={`art-image-${index} m-2 transition-all duration-300 cursor-pointer relative group opacity-0`}
             >
               <img
                 onClick={() => handleImageClick(item.img)}
@@ -101,7 +107,7 @@ const Art = forwardRef((props, ref) => {
               <div onClick={() => handleImageClick(item.img)} className="w-full h-full absolute top-0 left-0 flex justify-center items-center rounded-lg opacity-0 group-hover:opacity-100 bg-black/20 backdrop-blur-sm bg-opacity-30 transition-all duration-300">
               <i className="bi bi-search text-[60px] text-white flex justify-center items-center"></i>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </>
