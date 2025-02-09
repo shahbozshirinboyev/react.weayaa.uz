@@ -44,6 +44,21 @@ const Art = forwardRef((props, ref) => {
 
   const [activeImg, setActiveImg] = useState("");
 
+  const columnsRef = useRef(null);
+
+  useEffect(() => {
+    if (columnsRef.current) {
+      gsap.fromTo(columnsRef.current.parentNode,
+        { height: columnsRef.current.parentNode.scrollHeight },
+        { 
+          height: columnsRef.current.scrollHeight,
+          duration: 0.5,
+          ease: "power2.out"
+        }
+      );
+    }
+  }, [images]);
+
   useEffect(() => {
     images.forEach((item, index) => {
       gsap.fromTo(
@@ -92,23 +107,25 @@ const Art = forwardRef((props, ref) => {
         </Swiper>
       </>
       <>
-        <div className="columns-2 lg:columns-3 xl:columns-4">
-          {images.map((item, index) => (
-            <div
-              key={item.id}
-              className={`art-image-${index} m-2 transition-all duration-300 cursor-pointer relative group opacity-0`}
-            >
-              <img
-                onClick={() => handleImageClick(item.img)}
-                className="w-full transition-all duration-300 rounded-lg shadow-md"
-                src={item.img}
-                alt={item.title}
-              />
-              <div onClick={() => handleImageClick(item.img)} className="w-full h-full absolute top-0 left-0 flex justify-center items-center rounded-lg opacity-0 group-hover:opacity-100 bg-black/20 backdrop-blur-sm bg-opacity-30 transition-all duration-300">
-              <i className="bi bi-search text-[60px] text-white flex justify-center items-center"></i>
+        <div className="transition-all duration-500 ease-out overflow-hidden">
+          <div ref={columnsRef} className="columns-2 lg:columns-3 xl:columns-4">
+            {images.map((item, index) => (
+              <div
+                key={item.id}
+                className={`art-image-${index} m-2 transition-all duration-300 cursor-pointer relative group opacity-0`}
+              >
+                <img
+                  onClick={() => handleImageClick(item.img)}
+                  className="w-full transition-all duration-300 rounded-lg shadow-md"
+                  src={item.img}
+                  alt={item.title}
+                />
+                <div onClick={() => handleImageClick(item.img)} className="w-full h-full absolute top-0 left-0 flex justify-center items-center rounded-lg opacity-0 group-hover:opacity-100 bg-black/20 backdrop-blur-sm bg-opacity-30 transition-all duration-300">
+                <i className="bi bi-search text-[60px] text-white flex justify-center items-center"></i>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </>
       <>
