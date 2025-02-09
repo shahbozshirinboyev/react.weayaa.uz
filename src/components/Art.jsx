@@ -46,33 +46,67 @@ const Art = forwardRef((props, ref) => {
 
   const columnsRef = useRef(null);
 
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [containerHeight, setContainerHeight] = useState("auto");
+
   useEffect(() => {
     if (columnsRef.current) {
-      gsap.fromTo(columnsRef.current.parentNode,
-        { height: columnsRef.current.parentNode.scrollHeight },
-        { 
-          height: columnsRef.current.scrollHeight,
-          duration: 0.5,
-          ease: "power2.out"
-        }
-      );
+      setImagesLoaded(0);
+      const totalImages = images.length;
+      let loadedCount = 0;
+
+      const updateHeight = () => {
+        const newHeight = columnsRef.current.scrollHeight;
+        gsap.fromTo(
+          columnsRef.current.parentNode,
+          { 
+            height: containerHeight === "auto" ? newHeight : containerHeight,
+            overflow: "hidden"
+          },
+          { 
+            height: newHeight,
+            duration: 0.3,
+            ease: "power2.inOut",
+            onComplete: () => {
+              setContainerHeight(newHeight);
+            }
+          }
+        );
+      };
+
+      images.forEach((item) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          setImagesLoaded(loadedCount);
+          if (loadedCount === totalImages) {
+            setTimeout(updateHeight, 100); // Small delay to ensure DOM is updated
+          }
+        };
+        img.src = item.img;
+      });
     }
   }, [images]);
 
   useEffect(() => {
-    images.forEach((item, index) => {
-      gsap.fromTo(
-        `.art-image-${index}`,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          delay: index * 0.2,
-          duration: 0.8,
-          ease: "power3.out",
-        }
-      );
-    });
-  }, [images]);
+    const animations = [];
+    if (imagesLoaded === images.length) {
+      images.forEach((item, index) => {
+        const anim = gsap.fromTo(
+          `.art-image-${index}`,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            delay: index * 0.2,
+            duration: 0.4,
+            ease: "power3.out",
+          }
+        );
+        animations.push(anim);
+      });
+    }
+    return () => animations.forEach(anim => anim.kill());
+  }, [imagesLoaded]);
 
   return (
     <section ref={ref} className="container h-full">
@@ -107,7 +141,7 @@ const Art = forwardRef((props, ref) => {
         </Swiper>
       </>
       <>
-        <div className="transition-all duration-500 ease-out overflow-hidden">
+        <div style={{ height: containerHeight }} className="transition-all duration-300 ease-out overflow-hidden">
           <div ref={columnsRef} className="columns-2 lg:columns-3 xl:columns-4">
             {images.map((item, index) => (
               <div
