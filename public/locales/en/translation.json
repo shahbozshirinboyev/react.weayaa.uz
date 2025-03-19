@@ -37,9 +37,9 @@
     {
       "logoWhite": "/images/logo/logo-white.png",
       "logoBlack": "/images/logo/logo-black.png",
-      "title": "Welcome to WEAYAA",
+      "title": "Welcome to WEYA",
       "info": "Global Contents Development Company",
-      "description": "WeaYaa is the best content development company in Uzbekistan. We are located in Korea and Uzbekistan, and we are developing all visual contents (games, animations, movies, interiors, architecture, products, promotions) with the best effort. We aim to become a global company that leads the market based on constant challenge and beautiful sense."
+      "description": "WEYA is the best content development company in Uzbekistan. We are located in Korea and Uzbekistan, and we are developing all visual contents (games, animations, movies, interiors, architecture, products, promotions) with the best effort. We aim to become a global company that leads the market based on constant challenge and beautiful sense."
     }
   ],
 
@@ -47,27 +47,27 @@
     {
       "img": "/images/caricature_images/1.jpg",
       "name": "Lee Seung Hyun",
-      "label": "WeaYaa Korea CEO"
+      "label": "WEYA Korea CEO"
     },
     {
       "img": "/images/caricature_images/2.jpg",
       "name": "Tommy Kim",
-      "label": "WeaYaa Uzb CEO"
+      "label": "WEYA Uzb CEO"
     },
     {
       "img": "/images/caricature_images/3.jpg",
       "name": "Lee Gyeong Ho",
-      "label": "WeaYaa Korea COO"
+      "label": "WEYA Korea COO"
     },
     {
       "img": "/images/caricature_images/4.jpg",
       "name": "Choi Yeon Soo",
-      "label": "WeaYaa Korea GM"
+      "label": "WEYA Korea GM"
     },
     {
       "img": "/images/caricature_images/15.jpg",
       "name": "Lee Mi Kyung",
-      "label": "WeaYaa Korea PM"
+      "label": "WEYA Korea PM"
     },
     {
       "img": "/images/caricature_images/8.jpg",
@@ -413,38 +413,38 @@
     {
       "id": "news-1",
       "img": "/images/news/news_4.jpg",
-      "title": "WeaYaa's Donation",
+      "title": "WEYA's Donation",
       "date": "16.10.2024",
-      "by": "WeaYaa",
+      "by": "WEYA",
       "description": "Donation of Wi-Fi Internet to City Hospital. The director of City Hospital No. 16 expressed his gratitude.",
-      "info": "Internet Wi-Fi Donation to City Hospital No. 16. On October 15, 2024, WeaYaa CEO Kim Dae Keun donated free Internet Wi-Fi environment for the stable service of City Hospital No. 16, and promised cooperation in various IT projects in the future. The director of City Hospital No. 16 expressed his gratitude."
+      "info": "Internet Wi-Fi Donation to City Hospital No. 16. On October 15, 2024, WEYA CEO Kim Dae Keun donated free Internet Wi-Fi environment for the stable service of City Hospital No. 16, and promised cooperation in various IT projects in the future. The director of City Hospital No. 16 expressed his gratitude."
     },
     {
       "id": "news-2",
       "img": "/images/news/news_3.jpg",
-      "title": "WeaYaa's Environment",
+      "title": "WEYA's Environment",
       "date": "30.07.2024",
-      "by": "WeaYaa",
-      "description": "WeaYaa is where the smart designers and genius developers at Astrum make their dreams come true.",
-      "info": "WeaYaa is a place where sensible designers and genius developers in Astrum are making their dreams come true. Send your resume and portfolio through the website. (weayaa.uz)"
+      "by": "WEYA",
+      "description": "WEYA is where the smart designers and genius developers at Astrum make their dreams come true.",
+      "info": "WEYA is a place where sensible designers and genius developers in Astrum are making their dreams come true. Send your resume and portfolio through the website. (WEYA.uz)"
     },
     {
       "id": "news-3",
       "img": "/images/news/news_2.jpg",
-      "title": "WeaYaa Interview",
+      "title": "WEYA Interview",
       "date": "24.06.2024",
-      "by": "WeaYaa",
-      "description": "Weayaa representatives were interviewed at an event held at IT Park in Uzbekistan.",
-      "info": "Watch the interview with Lee Seung Hyun, CEO of Weayaa Korea, and Kim Dae Keun, CEO of Weayaa Uzbekistan, as they share their experiences discovering talented graphic design and IT professionals in Uzbekistan. They discuss the country's stability, along with the strong support and commitment from the government that exceeded their expectations. Learn how skilled designers in Uzbekistan are eager to collaborate with top Korean companies, showcasing the region's substantial growth potential in the IT and design industries."
+      "by": "WEYA",
+      "description": "WEYA representatives were interviewed at an event held at IT Park in Uzbekistan.",
+      "info": "Watch the interview with Lee Seung Hyun, CEO of WEYA Korea, and Kim Dae Keun, CEO of WEYA Uzbekistan, as they share their experiences discovering talented graphic design and IT professionals in Uzbekistan. They discuss the country's stability, along with the strong support and commitment from the government that exceeded their expectations. Learn how skilled designers in Uzbekistan are eager to collaborate with top Korean companies, showcasing the region's substantial growth potential in the IT and design industries."
     },
     {
       "id": "news-4",
       "img": "/images/news/news_1.jpg",
-      "title": "IT PARK and WeaYaa",
+      "title": "IT PARK and WEYA",
       "date": "23.04.2024",
       "by": "IT PARK",
       "description": "Talented young people of Uzbekistan in the field of information technologies were presented in Seoul.",
-      "info": "Resident companies of IT Park, such as the South Korean game development company Weayaa and the logistics firm Geo2 IUT Global, shared their successful business cases, highlighting their operations and achievements in Uzbekistan."
+      "info": "Resident companies of IT Park, such as the South Korean game development company WEYA and the logistics firm Geo2 IUT Global, shared their successful business cases, highlighting their operations and achievements in Uzbekistan."
     }
   ],
 
@@ -460,13 +460,13 @@
     {
       "logoWhite": "/images/logo/logo-white.png",
       "logoBlack": "/images/logo/logo-black.png",
-      "koreanCompanyName": "WeaYaa Co.,LTD",
+      "koreanCompanyName": "WEYA Co.,LTD",
       "koreanCompanyCEO": "이승현",
       "koreanCompanyRegistrationNumber": "482-88-02872",
-      "uzbCompanyName": "WeaYaa LLC",
+      "uzbCompanyName": "WEYA LLC",
       "uzbCompanyCEO": "김대근",
       "uzbCompanyRegistrationNumber": "311-176-835",
-      "copyright": "2024, WeaYaa. All rights reserved."
+      "copyright": "2024, WEYA. All rights reserved."
     }
   ],
   "readMore": "Read more",

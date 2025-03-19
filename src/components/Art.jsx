@@ -59,11 +59,11 @@ const Art = forwardRef((props, ref) => {
         const newHeight = columnsRef.current.scrollHeight;
         gsap.fromTo(
           columnsRef.current.parentNode,
-          { 
+          {
             height: containerHeight === "auto" ? newHeight : containerHeight,
             overflow: "hidden"
           },
-          { 
+          {
             height: newHeight,
             duration: 0.3,
             ease: "power2.inOut",
@@ -142,15 +142,15 @@ const Art = forwardRef((props, ref) => {
       </>
       <>
         <div style={{ height: containerHeight }} className="transition-all duration-300 ease-out overflow-hidden">
-          <div ref={columnsRef} className="columns-2 lg:columns-3 xl:columns-4">
+          <div ref={columnsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-2">
             {images.map((item, index) => (
               <div
                 key={item.id}
-                className={`art-image-${index} m-2 transition-all duration-300 cursor-pointer relative group opacity-0`}
+                className={`art-image-${index} transition-all duration-300 cursor-pointer relative group opacity-0`}
               >
                 <img
                   onClick={() => handleImageClick(item.img)}
-                  className="w-full transition-all duration-300 rounded-lg shadow-md"
+                  className="w-full md:h-[220px] object-cover transition-all duration-300 rounded-lg shadow-md"
                   src={item.img}
                   alt={item.title}
                 />
