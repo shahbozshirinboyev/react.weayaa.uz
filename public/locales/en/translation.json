@@ -95,8 +95,18 @@
       "label": "Back-End Developer"
     },
     {
+      "img": "/images/caricature_images/shukurillo.jpg",
+      "name": "Shukurillo Abdumannobov",
+      "label": "UI/UX Designer"
+    },
+    {
       "img": "/images/caricature_images/11.jpg",
       "name": "Hamid Seydanov",
+      "label": "3D Designer"
+    },
+    {
+      "img": "/images/caricature_images/anvar.jpg",
+      "name": "Anvar Fayzullaev",
       "label": "3D Designer"
     },
     {
