@@ -135,6 +135,11 @@
           "id": "weap-4",
           "img": "/images/art/weapons/sword_high.jpg",
           "title": ""
+        },
+        {
+          "id": "weap-5",
+          "img": "/images/art/weapons/axe-render.jpg",
+          "title": ""
         }
       ]
     },
